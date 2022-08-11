@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+  include SessionsHelper
   before_action :set_locale
   before_action :check_role_user
 
