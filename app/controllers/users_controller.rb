@@ -3,8 +3,7 @@ class UsersController < ApplicationController
     @user = User.find_by id: params[:id]
     retun if @user
 
-    # i18n later
-    flash[:danger] = "Cant find user"
+    flash.now[:error] = t "not_found"
     redirect_to root_path
   end
 
@@ -12,8 +11,7 @@ class UsersController < ApplicationController
     @user = User.new
     return if @user
 
-    # i18n later
-    flash[:danger] = "Cant find user"
+    flash.now[:error] = t "not_found"
     redirect_to root_path
   end
 
@@ -21,11 +19,10 @@ class UsersController < ApplicationController
     @user = User.new user_params
     if @user.save
       log_in @user
-      flash[:success] = "Dang ky thanh cong"
+      flash[:success] = t "success_signup"
       redirect_to root_path
     else
-      # i18n later
-      flash[:error] = "error"
+      flash.now[:error] = t "fail_signup"
       render :new
     end
   end

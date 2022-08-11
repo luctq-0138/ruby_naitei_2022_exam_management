@@ -1,1 +1,56 @@
 vi:
+  maxe: "Maxe"
+  base_title: "Maxe"
+  success_signup: "Chào mừng bạn đến với ứng dụng"
+  not_found: "Không tìm thấy người dùng."
+  fail_signup: "Có lỗi xảy ra. Vui lòng thử lại."
+  layouts:
+    header:
+      login: "Đăng nhập"
+      subjects: "Môn học"
+      languages: "Ngôn ngữ"
+      en: "Tiếng Anh"
+      vi: "Tiếng Việt"
+      account: "Tài khoản"
+      log_out: "Đăng xuất"
+  static_pages:
+    home:
+      heading: "Trang chủ"
+      welcome: "Chào mừng đến với Maxe"
+      intro: "Hệ thống quản lý kỳ thi"
+      signup: "Đăng ký ngay"
+  sessions:
+    new:
+      login: "Đăng nhập"
+      email: "Địa chỉ email"
+      password: "Password"
+      signup: "Đăng ký ngay"
+      new_user: "Bạn là người dùng mới?"
+      remember_me: "Ghi nhớ tài khoản"
+    create:
+      invalid_email_password_combination: "Email và password không trùng khớp"
+      login_success: "Đăng nhập thành công"
+  users:
+    form:
+      name: "Tên"
+      email: "Địa chỉ email"
+      password: "Password"
+      password_confirmation: "Nhập lại password"
+    new:
+      signup: "Đăng ký"
+      intro: "Trang đăng ký cho người dùng mới."
+      create: "Đăng ký tài khoản"
+    edit:
+      edit: "Chỉnh sửa thông tin"
+      save_changes: "Lưu thay đổi"
+      intro: "Chỉnh sửa thông tin"
+      danger: "Hãy đăng nhập"
+      incorrect_user: "Bạn không thể  sửa thông tin của người khác"
+      change: "Thay đổi"
+    update:
+      update_success: "Thông tin đã được thay đổi"
+      update_false: "Cập nhật thông tin thất bại"
+  shared:
+    error_messages:
+      intro: "Biểu mẫu có"
+      error: "lỗi"
