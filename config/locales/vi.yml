@@ -46,7 +46,6 @@ vi:
       intro: "Chỉnh sửa thông tin"
       danger: "Hãy đăng nhập"
       incorrect_user: "Bạn không thể  sửa thông tin của người khác"
-      change: "Thay đổi"
     update:
       update_success: "Thông tin đã được thay đổi"
       update_false: "Cập nhật thông tin thất bại"
