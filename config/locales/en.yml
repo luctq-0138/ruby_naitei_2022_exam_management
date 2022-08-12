@@ -45,7 +45,6 @@ en:
       intro: "Update your profile"
       danger: "Please log in."
       incorrect_user: "Incorrect user"
-      change: "Change"
     update:
       update_success: "Profile updated"
       update_false: "Update failed"
