@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  USER_ATTRS = %i(name email password password_confirmation).freeze
   enum role_id: {user: 0, admin: 1}
   before_save :downcase_email
 
