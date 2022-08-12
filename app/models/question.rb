@@ -1,4 +1,8 @@
 class Question < ApplicationRecord
+  NESTED_ATTRS = %i(id content is_correct _destroy).freeze
+  QUESTION_ATTRS = %i(question_content subject_id question_type)
+                   .push(answers_attributes: NESTED_ATTRS)
+
   enum type: {single_choice: 0, text_question: 1}
   belongs_to :subject
   has_many :answers, dependent: :destroy
@@ -8,13 +12,14 @@ class Question < ApplicationRecord
 
   class << self
     def types_i18n
-      types.keys.map do |key|
-        [I18n.t("question.type.#{key}"), key]
+      types.map do |key, value|
+        [I18n.t("question.type.#{key}"), value]
       end
     end
   end
 
-  def type_i18n
+  def type_i18n type_id
+    type = Question.types.keys[type_id]
     I18n.t("question.type.#{type}")
   end
 end
