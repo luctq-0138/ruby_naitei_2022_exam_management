@@ -40,33 +40,4 @@ class UsersController < ApplicationController
       render :edit
     end
   end
-
-  private
-  def user_params
-    params.require(:user).permit(:name, :email, :password,
-                                 :password_confirmation)
-  end
-
-  def find_user
-    @user = User.find_by id: params[:id]
-    return if @user.present?
-
-    flash[:danger] = t ".not_found"
-    redirect_to signup_path
-  end
-
-  def logged_in_user
-    return if logged_in?
-
-    store_location
-    flash[:danger] = t ".danger"
-    redirect_to login_path
-  end
-
-  def correct_user
-    return if check_correct_user? @user
-
-    flash[:danger] = t ".incorrect_user"
-    redirect_to root_path
-  end
 end
