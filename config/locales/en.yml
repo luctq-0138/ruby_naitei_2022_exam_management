@@ -1,1 +1,55 @@
 en:
+  base_title: "Maxe"
+  success_signup: "Welcome to the Sample App!"
+  not_found: "Not found user."
+  fail_signup: "Errors occurred. Please try again."
+  layouts:
+    header:
+      login: "Login"
+      subjects: "Subjects"
+      languages: "Languages"
+      en: "English"
+      vi: "Vietnamese"
+      account: "Account"
+      log_out: "Log out"
+  static_pages:
+    home:
+      heading: "Home"
+      welcome: "Welcome to Maxe"
+      intro: "The exam management"
+      signup: "Sign up now!"
+  sessions:
+    new:
+      login: "Login"
+      email: "Email"
+      password: "Password"
+      signup: "Sign up now!"
+      new_user: "New user?"
+      remember_me: "Remember me on this computer"
+    create:
+      invalid_email_password_combination: "Invalid email/password combination"
+      login_success: "Log in successfully"
+  users:
+    form:
+      name: "Name"
+      email: "Email"
+      password: "Password"
+      password_confirmation: "Confirm password"
+    new:
+      signup: "Sign up"
+      intro: "Sign up page for new users."
+      create: "Create my account"
+    edit:
+      edit: "Edit user"
+      save_changes: "Save changes"
+      intro: "Update your profile"
+      danger: "Please log in."
+      incorrect_user: "Incorrect user"
+      change: "Change"
+    update:
+      update_success: "Profile updated"
+      update_false: "Update failed"
+  shared:
+    error_messages:
+      intro: "The form contains"
+      error: "error"
