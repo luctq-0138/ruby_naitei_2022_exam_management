@@ -12,6 +12,26 @@
 
 ActiveRecord::Schema.define(version: 2022_08_16_061746) do
 
+  create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.string "content"
+    t.boolean "is_correct", default: false, null: false
+    t.bigint "question_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["question_id", "created_at"], name: "index_answers_on_question_id_and_created_at"
+    t.index ["question_id"], name: "index_answers_on_question_id"
+  end
+
+  create_table "questions", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
+    t.integer "question_type"
+    t.string "question_content"
+    t.bigint "subject_id", null: false
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["subject_id", "created_at"], name: "index_questions_on_subject_id_and_created_at"
+    t.index ["subject_id"], name: "index_questions_on_subject_id"
+  end
+
   create_table "subjects", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "name"
     t.text "description"
@@ -33,4 +53,6 @@ ActiveRecord::Schema.define(version: 2022_08_16_061746) do
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 
+  add_foreign_key "answers", "questions"
+  add_foreign_key "questions", "subjects"
 end

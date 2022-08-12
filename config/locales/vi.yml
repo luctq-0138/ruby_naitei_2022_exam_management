@@ -66,6 +66,26 @@ vi:
       update:
         update_success: "Thông tin đã được thay đổi"
         update_false: "Cập nhật thông tin thất bại"
+    questions:
+      form:
+        add: "+ Thêm đáp án"
+        answer_content: "nội dung"
+        is_correct: "câu trả lời đúng"
+        ques_content: "Nội dung câu hỏi"
+        subject: "Môn học"
+        type: "Loại câu hỏi"
+        save: "Lưu"
+      answer_fields:
+        answer: "Đáp án"
+        remove: "xóa câu đáp án"
+      new:
+        title: "Câu hỏi mới"
+      create:
+        create_failed: "Tạo câu hỏi chưa thành công"
+        created: "Tạo câu hỏi thành công!"
+      index:
+        all_question: "Tất cả câu hỏi"
+        create: "Tạo câu hỏi mới"
     subjects:
       index:
         title: "Tất cả môn học"
@@ -117,3 +137,7 @@ vi:
               cannot_greater: "Không thể lớn hơn số câu hỏi"
             name:
               unique: "đã tồn tại"
+  question:
+    type:
+      single_choice: "Trắc nghệm"
+      text_question: "Tự luận"

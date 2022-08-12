@@ -5,6 +5,7 @@ import "channels";
 require("jquery");
 import "bootstrap";
 import "../stylesheets/application";
+require("@nathanvda/cocoon");
 
 Rails.start();
 Turbolinks.start();
