@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  enum role_id: {user: 0, admin: 1}
   before_save :downcase_email
 
   validates :email, presence: true,

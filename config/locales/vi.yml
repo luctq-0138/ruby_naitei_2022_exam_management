@@ -1,9 +1,12 @@
 vi:
-  maxe: "Maxe"
   base_title: "Maxe"
+  maxe: "maxe"
+  maxe_admin: "maxe admin"
   success_signup: "Chào mừng bạn đến với ứng dụng"
   not_found: "Không tìm thấy người dùng."
   fail_signup: "Có lỗi xảy ra. Vui lòng thử lại."
+  danger: "Hãy đăng nhập"
+  incorrect_user: "Bạn không thể  sửa thông tin của người khác"
   layouts:
     header:
       login: "Đăng nhập"
@@ -13,6 +16,15 @@ vi:
       vi: "Tiếng Việt"
       account: "Tài khoản"
       log_out: "Đăng xuất"
+    header_admin:
+      login: "Đăng nhập"
+      subjects: "Quản lý môn học"
+      languages: "Ngôn ngữ"
+      en: "Tiếng Anh"
+      vi: "Tiếng Việt"
+      account: "Tài khoản"
+      log_out: "Đăng xuất"
+      questions: "Quản lý câu hỏi"
   static_pages:
     home:
       heading: "Trang chủ"
@@ -41,25 +53,28 @@ vi:
       invalid_email_password_combination: "Email và password không trùng khớp"
       login_success: "Đăng nhập thành công"
   users:
-    form:
-      name: "Tên"
-      email: "Địa chỉ email"
-      password: "Password"
-      password_confirmation: "Nhập lại password"
     new:
       signup: "Đăng ký"
       intro: "Trang đăng ký cho người dùng mới."
       create: "Đăng ký tài khoản"
-    edit:
-      edit: "Chỉnh sửa thông tin"
-      save_changes: "Lưu thay đổi"
-      intro: "Chỉnh sửa thông tin"
-      danger: "Hãy đăng nhập"
-      incorrect_user: "Bạn không thể  sửa thông tin của người khác"
     update:
       update_success: "Thông tin đã được thay đổi"
       update_false: "Cập nhật thông tin thất bại"
+  admin:
+    profile:
+      update:
+        update_success: "Thông tin đã được thay đổi"
+        update_false: "Cập nhật thông tin thất bại"
   shared:
     error_messages:
       intro: "Biểu mẫu có"
       error: "lỗi"
+    user_form:
+      name: "Tên"
+      email: "Địa chỉ email"
+      password: "Password"
+      password_confirmation: "Nhập lại password"
+    edit_profile:
+      edit: "Chỉnh sửa thông tin"
+      save_changes: "Lưu thay đổi"
+      intro: "Chỉnh sửa thông tin"

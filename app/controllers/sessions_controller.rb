@@ -20,6 +20,10 @@ class SessionsController < ApplicationController
   def handle_log_in user
     log_in user
     flash[:success] = t ".login_success"
-    redirect_back_or root_path
+    if user.admin?
+      redirect_back_or admin_root_path
+    else
+      redirect_back_or root_path
+    end
   end
 end
