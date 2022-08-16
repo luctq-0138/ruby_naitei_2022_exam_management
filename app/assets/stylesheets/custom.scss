@@ -162,15 +162,21 @@ input {
   margin-left: 0;
 }
 
-.pagy-bootstrap-nav{
+.pagy-bootstrap-nav {
   display: flex;
   justify-content: center;
 }
 
-.custom-select{
+.custom-select {
   width: 20% !important;
 }
 
-.form-inline .form-control{
+.form-inline .form-control {
   vertical-align: top;
+}
+
+.text-danger {
+  color: #a94442;
+  margin-top: -8px;
+  margin-bottom: 10px;
 }

@@ -24,6 +24,18 @@ class Admin::SubjectsController < Admin::BaseController
     end
   end
 
+  def edit; end
+
+  def update
+    if @subject.update subject_params
+      flash[:success] = t ".update_success"
+      redirect_to admin_subjects_path
+    else
+      flash[:danger] = t ".update_false"
+      render :edit
+    end
+  end
+
   def destroy
     if @subject.destroy
       flash[:success] = t ".subject_deleted"

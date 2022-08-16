@@ -17,6 +17,7 @@ class User < ApplicationRecord
   validates :password, presence: true,
                        length: {minimum: Settings.password_min_length},
                        allow_nil: true
+
   private
 
   def downcase_email
