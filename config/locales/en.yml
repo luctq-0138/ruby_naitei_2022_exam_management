@@ -3,9 +3,9 @@ en:
   maxe: "maxe"
   maxe_admin: "maxe admin"
   success_signup: "Welcome to the Maxe App!"
-  not_found: "Not found user."
-  fail_signup: "Errors occurred. Please try again."
-  danger: "Please log in."
+  not_found: "Not found"
+  fail_signup: "Errors occurred. Please try again"
+  danger: "Please log in"
   incorrect_user: "Incorrect user"
   layouts:
     header:
@@ -65,6 +65,34 @@ en:
       update:
         update_success: "Profile updated"
         update_false: "Update failed"
+    subjects:
+      index:
+        title: "All subjects"
+        name: "Subject name"
+        ques_num: "Question number"
+        duration: "Duration (min)"
+        score_pass: "Score to pass"
+        description: "Description"
+        no_subject: "No subject yet"
+        create_new_subject: "New subjects"
+      new:
+        title: "New subjects"
+        create: "Create"
+      create:
+        success_create: "Successfully created a new subject"
+        fail_create: "New creation failed."
+      form:
+        name: "Subject name"
+        question_number: "Question number"
+        duration: "Duration (min)"
+        score_pass: "Score to pass"
+        description: "Description"
+      error_messages:
+        intro: "The form contains"
+        error: "error"
+      destroy:
+        subject_deleted: "Subject deleted"
+        subject_delete_fail: "Subject delete fail"
   shared:
     error_messages:
       intro: "The form contains"

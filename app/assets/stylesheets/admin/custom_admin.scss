@@ -1,3 +1,23 @@
-.test-css {
+a {
+  text-decoration: none !important;
+}
+
+.icon {
+  display: inline-block;
+  padding: 1px;
+  font-size: 20px !important;
+
+  &:hover {
+    opacity: 0.6;
+  }
+}
+
+.delete-icon {
   color: red;
+  margin-right: 5px;
+}
+
+.edit-icon {
+  color: #2e6da4;
+  margin-left: 5px
 }

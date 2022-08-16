@@ -1,0 +1,28 @@
+<%= form_for @subject, url: admin_subjects_path, method: :post do |f| %>
+  <div class="col-md-6 col-md-offset-3">
+    <%= render "shared/error_messages", object: @subject %>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.label t ".name" %>
+    <%= f.text_field :name, class: "form-control" %>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.label t ".description" %>
+    <%= f.text_field :description, class: "form-control" %>
+  </div>
+  <div class="col-md-2 col-md-offset-3">
+    <%= f.label t ".question_number" %>
+    <%= f.number_field :question_number, min: 0, step: 1, class: "form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= f.label t ".score_pass" %>
+    <%= f.number_field :score_pass, min: 0, step: 1, class: "form-control" %>
+  </div>
+  <div class="col-md-2">
+    <%= f.label t ".duration" %>
+    <%= f.number_field :duration, min: 0, step: 1, class: "form-control" %>
+  </div>
+  <div class="col-md-6 col-md-offset-3">
+    <%= f.submit yield(:button_text), class: "btn btn-success" %>
+  </div>
+<% end %>

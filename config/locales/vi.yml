@@ -3,8 +3,8 @@ vi:
   maxe: "maxe"
   maxe_admin: "maxe admin"
   success_signup: "Chào mừng bạn đến với ứng dụng"
-  not_found: "Không tìm thấy người dùng."
-  fail_signup: "Có lỗi xảy ra. Vui lòng thử lại."
+  not_found: "Không tìm thấy"
+  fail_signup: "Có lỗi xảy ra. Vui lòng thử lại"
   danger: "Hãy đăng nhập"
   incorrect_user: "Bạn không thể  sửa thông tin của người khác"
   layouts:
@@ -65,6 +65,34 @@ vi:
       update:
         update_success: "Thông tin đã được thay đổi"
         update_false: "Cập nhật thông tin thất bại"
+    subjects:
+      index:
+        title: "Tất cả môn học"
+        name: "Tên môn học"
+        ques_num: "Số câu hỏi"
+        duration: "Thời gian (phút)"
+        score_pass: "Điểm đạt"
+        description: "Mô tả"
+        no_subject: "Chưa có môn học"
+        create_new_subject: "Tạo môn học mới"
+      new:
+        title: "Tạo môn học mới"
+        create: "Tạo mới"
+      create:
+        success_create: "Đã tạo thành công một môn học mới"
+        fail_create: "Tạo môn học mới thất bại"
+      form:
+        name: "Tên môn học"
+        question_number: "Số câu hỏi"
+        duration: "Thời gian (phút)"
+        score_pass: "Điểm đạt"
+        description: "Mô tả"
+      error_messages:
+        intro: "Biểu mẫu có"
+        error: "lỗi"
+      destroy:
+        subject_deleted: "Đã xóa môn học"
+        subject_delete_fail: "Xóa nmôn học thất bại"
   shared:
     error_messages:
       intro: "Biểu mẫu có"
