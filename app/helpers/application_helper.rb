@@ -16,4 +16,9 @@ module ApplicationHelper
     base_title = t "base_title"
     page_title.blank? ? base_title : [page_title, base_title].join(" | ")
   end
+
+  def error_message object, field
+    message = object.errors[field].first if object.errors[field].present?
+    content_tag(:div, message, class: "text-danger")
+  end
 end

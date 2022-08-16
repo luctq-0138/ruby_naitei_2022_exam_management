@@ -7,6 +7,7 @@ vi:
   fail_signup: "Có lỗi xảy ra. Vui lòng thử lại"
   danger: "Hãy đăng nhập"
   incorrect_user: "Bạn không thể  sửa thông tin của người khác"
+  incorrect_admin: "Bạn không phải là admin"
   layouts:
     header:
       login: "Đăng nhập"
@@ -69,7 +70,8 @@ vi:
       index:
         title: "Tất cả môn học"
         name: "Tên môn học"
-        ques_num: "Số câu hỏi"
+        total_ques: "Tổng số câu hỏi"
+        ques_num: "Số câu hỏi (trong bài kiểm tra)"
         duration: "Thời gian (phút)"
         score_pass: "Điểm đạt"
         description: "Mô tả"
@@ -81,22 +83,22 @@ vi:
       create:
         success_create: "Đã tạo thành công một môn học mới"
         fail_create: "Tạo môn học mới thất bại"
+      edit:
+        title: "Chỉnh sửa môn học"
+        save_changes: "Lưu thay đổi"
+      update:
+        update_success: "Môn học đã được thay đổi"
+        update_false: "Cập nhật môn học thất bại"
       form:
         name: "Tên môn học"
-        question_number: "Số câu hỏi"
+        question_number: "Số câu hỏi (trong bài kiểm tra)"
         duration: "Thời gian (phút)"
         score_pass: "Điểm đạt"
         description: "Mô tả"
-      error_messages:
-        intro: "Biểu mẫu có"
-        error: "lỗi"
       destroy:
         subject_deleted: "Đã xóa môn học"
         subject_delete_fail: "Xóa nmôn học thất bại"
   shared:
-    error_messages:
-      intro: "Biểu mẫu có"
-      error: "lỗi"
     user_form:
       name: "Tên"
       email: "Địa chỉ email"
@@ -106,3 +108,12 @@ vi:
       edit: "Chỉnh sửa thông tin"
       save_changes: "Lưu thay đổi"
       intro: "Chỉnh sửa thông tin"
+  activerecord:
+    errors:
+      models:
+        subject:
+          attributes:
+            score_pass:
+              cannot_greater: "Không thể lớn hơn số câu hỏi"
+            name:
+              unique: "đã tồn tại"

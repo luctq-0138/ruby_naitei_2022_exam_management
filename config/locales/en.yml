@@ -7,6 +7,7 @@ en:
   fail_signup: "Errors occurred. Please try again"
   danger: "Please log in"
   incorrect_user: "Incorrect user"
+  incorrect_admin: "Incorrect admin"
   layouts:
     header:
       login: "Login"
@@ -69,7 +70,8 @@ en:
       index:
         title: "All subjects"
         name: "Subject name"
-        ques_num: "Question number"
+        total_ques: "Total number of questions"
+        ques_num: "Question number (in the test)"
         duration: "Duration (min)"
         score_pass: "Score to pass"
         description: "Description"
@@ -81,22 +83,22 @@ en:
       create:
         success_create: "Successfully created a new subject"
         fail_create: "New creation failed."
+      edit:
+        title: "Edit subjects"
+        save_changes: "Save changes"
+      update:
+        update_success: "Subject updated"
+        update_false: "Update failed"
       form:
         name: "Subject name"
-        question_number: "Question number"
+        question_number: "Question number (in the test)"
         duration: "Duration (min)"
         score_pass: "Score to pass"
         description: "Description"
-      error_messages:
-        intro: "The form contains"
-        error: "error"
       destroy:
         subject_deleted: "Subject deleted"
         subject_delete_fail: "Subject delete fail"
   shared:
-    error_messages:
-      intro: "The form contains"
-      error: "error"
     user_form:
       name: "Name"
       email: "Email"
@@ -106,3 +108,12 @@ en:
       edit: "Edit user"
       save_changes: "Save changes"
       intro: "Update your profile"
+  activerecord:
+    errors:
+      models:
+        subject:
+          attributes:
+            score_pass:
+              cannot_greater: "can't be greater than question number"
+            name:
+              unique: "already exist"

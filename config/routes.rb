@@ -13,7 +13,7 @@ Rails.application.routes.draw do
       root to: "static_pages#index"
       resources :static_pages
       resources :profile, only: %i(edit update)
-      resources :subjects, only: %i(index new create destroy)
+      resources :subjects, only: %i(index new create edit update destroy)
     end
   end
 end
