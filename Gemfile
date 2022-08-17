@@ -6,6 +6,7 @@ ruby "3.0.2"
 gem "bcrypt", "3.1.13"
 gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-sass", "3.4.1"
+gem "cocoon"
 gem "config"
 gem "font-awesome-rails"
 gem "jbuilder", "~> 2.7"
