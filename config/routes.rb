@@ -4,15 +4,18 @@ Rails.application.routes.draw do
     resources :subjects, only: %i(index)
     resources :users
     resources :subjects, only: %i(index)
+
     get "/signup", to: "users#new"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
-    
+
     namespace :admin do
       root to: "static_pages#index"
-      resources :static_pages
+      resources :static_pages, only: %i(index)
+      resources :users, only: %i(index)
       resources :profile, only: %i(edit update)
+      resources :account_activations, only: %i(edit)
       resources :subjects, only: %i(index new create edit update destroy)
       resources :questions
       resources :answers

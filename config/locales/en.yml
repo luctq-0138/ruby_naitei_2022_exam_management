@@ -2,7 +2,7 @@ en:
   base_title: "Maxe"
   maxe: "maxe"
   maxe_admin: "maxe admin"
-  success_signup: "Welcome to the Maxe App!"
+  success_signup: "Welcome to the Maxe App! Contact the administrator to activate the account"
   not_found: "Not found"
   fail_signup: "Errors occurred. Please try again"
   danger: "Please log in"
@@ -20,6 +20,7 @@ en:
     header_admin:
       login: "Login"
       subjects: "Manage subjects"
+      users: "Manage users"
       languages: "Languages"
       en: "English"
       vi: "Vietnamese"
@@ -53,6 +54,7 @@ en:
     create:
       invalid_email_password_combination: "Invalid email/password combination"
       login_success: "Log in successfully"
+      account_not_activated: "Account not activated. Contact the administrator to activate the account"
   users:
     new:
       signup: "Sign up"
@@ -62,6 +64,30 @@ en:
       update_success: "Profile updated"
       update_false: "Update failed"
   admin:
+    static_pages:
+      index:
+        title: "Home page"
+        heading: "Overview"
+        name: "Subject name"
+        total_ques: "Total number of questions"
+        num_created: "Number of times the test was created"
+        num_passed: "Number of tests passed"
+        description: "Description"
+    users:
+      index:
+        title: "Manage users"
+        heading: "All users"
+        name: "Name"
+        email: "Email"
+        attended: "Attended (subject)"
+        passed: "Passed (subject)"
+        action: "Action"
+        no_user: "No user yet"
+    account_activations:
+      edit:
+        success_activated: "Account activated"
+        success_inactivated: "Disable successfully"
+        fail_activated: "Activation failed"
     profile:
       update:
         update_success: "Profile updated"

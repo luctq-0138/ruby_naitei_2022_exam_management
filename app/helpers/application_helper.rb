@@ -21,4 +21,16 @@ module ApplicationHelper
     message = object.errors[field].first if object.errors[field].present?
     content_tag(:div, message, class: "text-danger")
   end
+
+  def icon_active_or_inactive user
+    if user.activated
+      "fa-lock fa icon inactive-icon"
+    else
+      "fa fa-unlock icon active-icon"
+    end
+  end
+
+  def status_account user
+    user.activated ? "active" : "inactive"
+  end
 end

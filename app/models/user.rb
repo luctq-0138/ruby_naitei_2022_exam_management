@@ -18,6 +18,10 @@ class User < ApplicationRecord
                        length: {minimum: Settings.password_min_length},
                        allow_nil: true
 
+  def activate
+    update activated: !activated, activated_at: Time.zone.now
+  end
+
   private
 
   def downcase_email
