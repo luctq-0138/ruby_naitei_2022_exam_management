@@ -18,12 +18,17 @@ class SessionsController < ApplicationController
 
   private
   def handle_log_in user
-    log_in user
-    flash[:success] = t ".login_success"
-    if user.admin?
-      redirect_back_or admin_root_path
+    if user.activated?
+      log_in user
+      flash[:success] = t ".login_success"
+      if user.admin?
+        redirect_back_or admin_root_path
+      else
+        redirect_back_or root_path
+      end
     else
-      redirect_back_or root_path
+      flash[:warning] = t ".account_not_activated"
+      redirect_to root_url
     end
   end
 end

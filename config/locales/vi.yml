@@ -2,7 +2,7 @@ vi:
   base_title: "Maxe"
   maxe: "maxe"
   maxe_admin: "maxe admin"
-  success_signup: "Chào mừng bạn đến với ứng dụng"
+  success_signup: "Chào mừng bạn đến với ứng dụng! Liên hệ quản trị viên để  được kích hoạt tài khoản"
   not_found: "Không tìm thấy"
   fail_signup: "Có lỗi xảy ra. Vui lòng thử lại"
   danger: "Hãy đăng nhập"
@@ -21,6 +21,7 @@ vi:
       login: "Đăng nhập"
       subjects: "Quản lý môn học"
       languages: "Ngôn ngữ"
+      users: "Quản lý người dùng"
       en: "Tiếng Anh"
       vi: "Tiếng Việt"
       account: "Tài khoản"
@@ -53,6 +54,7 @@ vi:
     create:
       invalid_email_password_combination: "Email và password không trùng khớp"
       login_success: "Đăng nhập thành công"
+      account_not_activated: "Tài khoản chưa được kích hoạt. Liên hệ quản trị viên để  được kích hoạt tài khoản"
   users:
     new:
       signup: "Đăng ký"
@@ -62,6 +64,30 @@ vi:
       update_success: "Thông tin đã được thay đổi"
       update_false: "Cập nhật thông tin thất bại"
   admin:
+    static_pages:
+      index:
+        title: "Trang chủ"
+        heading: "Tổng quan"
+        name: "Tên môn học"
+        total_ques: "Tổng số câu hỏi"
+        num_created: "Số bài kiểm tra đã tạo"
+        num_passed: "Số bài kiểm tra đạt"
+        description: "Mô tả"
+    users:
+      index:
+        title: "Quản lý người dùng"
+        heading: "Tất cả người dùng"
+        name: "Tên"
+        email: "Địa chỉ Email"
+        attended: Đã tham gia (môn học)
+        passed: "Đã hoàn thành (môn học)"
+        action: "Hành động"
+        no_user: "Chưa có môn học"
+    account_activations:
+      edit:
+        success_activated: "Kích hoạt tài khoản thành công"
+        success_inactivated: "Vô hiệu hóa tài khoản thành công"
+        fail_activated: "Kích hoạt thất bại"
     profile:
       update:
         update_success: "Thông tin đã được thay đổi"

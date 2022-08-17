@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_16_061746) do
+ActiveRecord::Schema.define(version: 2022_08_17_020146) do
 
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
@@ -50,6 +50,8 @@ ActiveRecord::Schema.define(version: 2022_08_16_061746) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.integer "role_id", default: 0
+    t.boolean "activated", default: false
+    t.datetime "activated_at"
     t.index ["email"], name: "index_users_on_email", unique: true
   end
 

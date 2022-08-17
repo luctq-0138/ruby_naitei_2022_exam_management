@@ -12,7 +12,8 @@ a {
   }
 }
 
-.delete-icon {
+.delete-icon,
+.inactive-icon {
   color: red;
   margin-right: 5px;
 }
@@ -22,6 +23,18 @@ a {
   margin-left: 5px
 }
 
+.active-icon {
+  color: #5cb85c;
+}
+
 .mg-top-10 {
   margin-top: 10px;
+}
+
+.active {
+  color: #3b913b;
+}
+
+.inactive {
+  color: red
 }
