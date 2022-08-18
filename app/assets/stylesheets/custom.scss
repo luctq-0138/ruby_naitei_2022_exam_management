@@ -181,13 +181,109 @@ input {
   margin-bottom: 10px;
 }
 
-.remove-ans{
+.remove-ans {
   margin: 15px;
 }
 
-.save-question{
+.save-question {
   width: 20%;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20px;
+}
+
+/* margin */
+.mg-top-24 {
+  margin-top: 24px;
+}
+
+/* table */
+td {
+  vertical-align: middle !important;
+}
+
+.status {
+  display: inline-block;
+  margin-bottom: 0;
+  text-align: center;
+  white-space: nowrap;
+  touch-action: manipulation;
+
+  border: 1px solid transparent;
+  padding: 6px 12px;
+  font-size: 14px;
+  line-height: 1.428571429;
+  border-radius: 4px;
+
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+
+  font-weight: bold;
+  color: white
+}
+
+.start-status {
+  background-color: $primary;
+}
+
+.completed-status,
+.doing-status {
+  background-color: $info;
+}
+
+.passed-status {
+  background-color: $success;
+}
+
+.failed-status {
+  background-color: red;
+}
+
+.question-title {
+  font-size: 20px;
+}
+
+.answer-collect {
+  margin-left: 30px;
+  margin-top: 20px;
+}
+
+// answer in exam
+
+.answer-collect>label {
+  font-size: 20px;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+
+  input {
+    margin-top: 0 !important;
+    width: 20px;
+    margin-right: 10px;
+    font-weight: normal !important;
+  }
+}
+
+.timer {
+  display: flex;
+  justify-content: space-around;
+  position: fixed;
+  right: 50px;
+  top: 70px;
+  font-size: 20px;
+  border: 1px solid;
+  background-color: rgba(255, 255, 204, 0.5);
+  width: 6%;
+}
+
+.countdown {
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.justify-center {
+  display: flex;
+  justify-content: center;
 }

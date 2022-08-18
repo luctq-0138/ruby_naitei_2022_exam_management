@@ -8,6 +8,9 @@ en:
   danger: "Please log in"
   incorrect_user: "Incorrect user"
   incorrect_admin: "Incorrect admin"
+  start: "Start"
+  continue: "Continue"
+  view: "View"
   layouts:
     header:
       login: "Login"
@@ -34,12 +37,19 @@ en:
       intro: "The exam management"
       signup: "Sign up now!"
       create_exam: "Create Exam"
+      create_date: "Create Date"
+      subject: "Subject"
+      status: "Status"
+      duration: "Duration(min)"
+      ques_num: "Question number"
+      score: "Score"
+      no_exam: "No exam yet"
   subjects:
     index:
       title: "All subjects"
       name: "Subject name"
       ques_num: "Question number"
-      duration: "Duration(min)"
+      duration: "Duration (min)"
       score_pass: "Score to pass"
       description: "Description"
       no_subject: "No subject yet"
@@ -63,6 +73,14 @@ en:
     update:
       update_success: "Profile updated"
       update_false: "Update failed"
+  exams:
+    create:
+      success_create: "Successfully created a new exam"
+      fail_create: "New creation failed"
+    show:
+      submit: "Submit"
+      question: "Question"
+      time_remaining: "Time Remaining:"
   admin:
     static_pages:
       index:
@@ -92,6 +110,15 @@ en:
       update:
         update_success: "Profile updated"
         update_false: "Update failed"
+      form:
+        name: "Name"
+        email: "Email"
+        password: "Password"
+        password_confirmation: "Confirm password"
+      edit:
+        edit: "Edit user"
+        save_changes: "Save changes"
+        intro: "Update your profile"
     questions:
       form:
         add: "+ Add another answer"
@@ -128,7 +155,7 @@ en:
         create: "Create"
       create:
         success_create: "Successfully created a new subject"
-        fail_create: "New creation failed."
+        fail_create: "New creation failed"
       edit:
         title: "Edit subjects"
         save_changes: "Save changes"
@@ -154,6 +181,17 @@ en:
       edit: "Edit user"
       save_changes: "Save changes"
       intro: "Update your profile"
+  question:
+    type:
+      single_choice: "Single choice"
+      multiple_choice: "Multiple choice"
+  exam:
+    status:
+      start: "Start"
+      doing: "Doing"
+      completed: "Completed"
+      failed: "Failed"
+      passed: "passed"
   activerecord:
     errors:
       models:
@@ -163,7 +201,3 @@ en:
               cannot_greater: "can't be greater than question number"
             name:
               unique: "already exist"
-  question:
-    type:
-      single_choice: "Single choice"
-      text_question: "Text question"

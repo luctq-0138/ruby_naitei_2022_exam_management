@@ -1,4 +1,7 @@
 class Subject < ApplicationRecord
+  has_many :exams, dependent: :destroy
+  has_many :questions, dependent: :destroy
+
   SUBJECT_ATTRS = %i(name description question_number duration
                                                       score_pass).freeze
 

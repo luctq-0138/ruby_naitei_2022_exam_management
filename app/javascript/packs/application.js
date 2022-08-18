@@ -6,6 +6,9 @@ require("jquery");
 import "bootstrap";
 import "../stylesheets/application";
 require("@nathanvda/cocoon");
+require("packs/count_down");
+require("packs/back_reload");
+require("packs/create_answer_handle");
 
 Rails.start();
 Turbolinks.start();

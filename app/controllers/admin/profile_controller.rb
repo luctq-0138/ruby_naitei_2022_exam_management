@@ -7,7 +7,7 @@ class Admin::ProfileController < Admin::BaseController
   def update
     if @user.update user_params
       flash[:success] = t ".update_success"
-      redirect_to root_path
+      redirect_to admin_root_path
     else
       flash.now[:error] = t ".update_false"
       render :edit

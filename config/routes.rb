@@ -3,12 +3,14 @@ Rails.application.routes.draw do
     root "static_pages#home"
     resources :subjects, only: %i(index)
     resources :users
-    resources :subjects, only: %i(index)
+    resources :exams, only: %i(show create update)
 
     get "/signup", to: "users#new"
     get "/login", to: "sessions#new"
     post "/login", to: "sessions#create"
     delete "/logout", to: "sessions#destroy"
+
+    resources :relationships, only: %i(create)
 
     namespace :admin do
       root to: "static_pages#index"

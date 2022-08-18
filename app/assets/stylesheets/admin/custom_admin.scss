@@ -1,3 +1,5 @@
+@import "color.scss";
+
 a {
   text-decoration: none !important;
 }
@@ -19,12 +21,12 @@ a {
 }
 
 .edit-icon {
-  color: #2e6da4;
+  color: $primary;
   margin-left: 5px
 }
 
 .active-icon {
-  color: #5cb85c;
+  color: $success;
 }
 
 .mg-top-10 {
