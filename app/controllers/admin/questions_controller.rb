@@ -2,19 +2,28 @@ class Admin::QuestionsController < Admin::BaseController
   before_action :find_question, except: %i(index new create)
 
   def index
-    @pagy, @question_item = pagy Question.all, items: Settings.pagy
+    store_location
+    question_by_subject = Question.by_subject(params[:subject_id])
+    if params[:subject_id]
+      sub_path = new_admin_subject_question_path(params[:subject_id])
+    end
+    @pagy, @question_item = pagy question_by_subject, items: Settings.pagy
+    @path = params[:subject_id] ? sub_path : new_admin_question_path
   end
 
   def new
     @question = Question.new
     @subject = Subject.pluck :name, :id
+    @question.answers.build
+    @question.answers.build
   end
 
   def create
     @question = Question.new question_params
+    @subject = Subject.pluck :name, :id
     if @question.save
       flash[:success] = t ".created"
-      redirect_to admin_questions_path
+      redirect_back_or admin_questions_path
     else
       flash[:error] = t ".create_failed"
       render :new
@@ -28,6 +37,7 @@ class Admin::QuestionsController < Admin::BaseController
 
   def update
     @answer_item = Question.find_by id: params[:id]
+    @subject_id = @question.subject_id
     if @question.update question_params
       flash[:success] = "update_success"
       redirect_to admin_questions_path
@@ -43,7 +53,7 @@ class Admin::QuestionsController < Admin::BaseController
     else
       flash[:danger] =  "Questiom delete failed"
     end
-    redirect_to admin_questions_path
+    redirect_back_or admin_questions_path
   end
 
   private

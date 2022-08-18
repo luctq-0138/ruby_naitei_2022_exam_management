@@ -208,3 +208,12 @@ en:
               cannot_greater: "can't be greater than question number"
             name:
               unique: "already exist"
+        question:
+          attributes:
+            answers:
+              not_enough_answer: "Not enough answer for question"
+              not_valid_correct_answer_number: "Not valid right answer number"
+  question:
+    type:
+      single_choice: "Single choice"
+      multiple_choice: "Multiple choice"

@@ -19,6 +19,9 @@ Rails.application.routes.draw do
       resources :profile, only: %i(edit update)
       resources :account_activations, only: %i(edit)
       resources :subjects, only: %i(index new create edit update destroy)
+      resources  :subjects do 
+        resources :questions
+      end
       resources :questions
       resources :answers
     end
