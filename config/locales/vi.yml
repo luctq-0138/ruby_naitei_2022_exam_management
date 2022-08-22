@@ -11,6 +11,8 @@ vi:
   start: "Bắt đầu"
   continue: "Tiếp tục"
   view: "Xem lại"
+  wrong_answer: "Câu trả lời sai"
+  correct_answer: "Câu trả lời đúng"
   layouts:
     header:
       login: "Đăng nhập"
@@ -78,9 +80,14 @@ vi:
       success_create: "Tạo bài kiểm tra thành công"
       fail_create: "Tạo bài kiểm tra thất bại"
     show:
+      title: "Bài kiểm tra"
+      score: "Điểm số"
+    do_test:
       submit: "Nộp bài"
       question: "Câu hỏi"
       time_remaining: "Thời gian còn lại:"
+    view_test:
+      question: "Câu hỏi"
   admin:
     static_pages:
       index:

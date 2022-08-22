@@ -266,7 +266,7 @@ td {
   }
 }
 
-.timer {
+.fixed {
   display: flex;
   justify-content: space-around;
   position: fixed;
@@ -275,7 +275,14 @@ td {
   font-size: 20px;
   border: 1px solid;
   background-color: rgba(255, 255, 204, 0.5);
+}
+
+.clock-fixed {
   width: 6%;
+}
+
+.result-fixed {
+  width: 10%;
 }
 
 .countdown {
@@ -286,4 +293,25 @@ td {
 .justify-center {
   display: flex;
   justify-content: center;
+}
+
+.result {
+  display: inline;
+  padding: 0.2em 0.6em 0.3em;
+  font-size: 15px;
+  font-weight: bold;
+  line-height: 1;
+  color: #fff;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25em;
+}
+
+.result-correct {
+  background-color: $success;
+}
+
+.result-wrong {
+  background-color: red;
 }

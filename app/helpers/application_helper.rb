@@ -42,7 +42,7 @@ module ApplicationHelper
     when "doing"
       link_to t("continue"), exam_path(exam.id), class: "btn btn-info"
     else
-      link_to t("view"), "#", class: "btn btn-success"
+      link_to t("view"), exam_path(exam.id), class: "btn btn-success"
     end
   end
 
