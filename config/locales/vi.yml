@@ -8,6 +8,9 @@ vi:
   danger: "Hãy đăng nhập"
   incorrect_user: "Bạn không thể  sửa thông tin của người khác"
   incorrect_admin: "Bạn không phải là admin"
+  start: "Bắt đầu"
+  continue: "Tiếp tục"
+  view: "Xem lại"
   layouts:
     header:
       login: "Đăng nhập"
@@ -34,12 +37,19 @@ vi:
       intro: "Hệ thống quản lý kỳ thi"
       signup: "Đăng ký ngay"
       create_exam: "Tạo bài thi"
+      create_date: "Ngày tạo"
+      subject: "Môn học"
+      status: "Trạng thái"
+      duration: "Thời gian  (phút)"
+      ques_num: "Số  câu hỏi"
+      score: "Điểm số "
+      no_exam: "Chưa có bài thi"
   subjects:
     index:
       title: "Tất cả môn học"
       name: "Tên môn học"
       ques_num: "Số câu hỏi"
-      duration: "Thời gian(phút)"
+      duration: "Thời gian (phút)"
       score_pass: "Điểm đạt"
       description: "Mô tả"
       no_subject: "Chưa có môn học"
@@ -63,6 +73,14 @@ vi:
     update:
       update_success: "Thông tin đã được thay đổi"
       update_false: "Cập nhật thông tin thất bại"
+  exams:
+    create:
+      success_create: "Tạo bài kiểm tra thành công"
+      fail_create: "Tạo bài kiểm tra thất bại"
+    show:
+      submit: "Nộp bài"
+      question: "Câu hỏi"
+      time_remaining: "Thời gian còn lại:"
   admin:
     static_pages:
       index:
@@ -92,6 +110,15 @@ vi:
       update:
         update_success: "Thông tin đã được thay đổi"
         update_false: "Cập nhật thông tin thất bại"
+      form:
+        name: "Tên"
+        email: "Địa chỉ email"
+        password: "Password"
+        password_confirmation: "Nhập lại password"
+      edit:
+        edit: "Chỉnh sửa thông tin"
+        save_changes: "Lưu thay đổi"
+        intro: "Chỉnh sửa thông tin"
     questions:
       form:
         add: "+ Thêm đáp án"
@@ -154,6 +181,17 @@ vi:
       edit: "Chỉnh sửa thông tin"
       save_changes: "Lưu thay đổi"
       intro: "Chỉnh sửa thông tin"
+  question:
+    type:
+      single_choice: "Trắc nghệm"
+      multiple_choice: "Chọn nhiều đáp án"
+  exam:
+    status:
+      start: "Bắt đầu"
+      doing: "Đang làm"
+      completed: "Hoàn thành"
+      failed: "Không đạt"
+      passed: "Đạt"
   activerecord:
     errors:
       models:
@@ -163,7 +201,3 @@ vi:
               cannot_greater: "Không thể lớn hơn số câu hỏi"
             name:
               unique: "đã tồn tại"
-  question:
-    type:
-      single_choice: "Trắc nghệm"
-      text_question: "Tự luận"

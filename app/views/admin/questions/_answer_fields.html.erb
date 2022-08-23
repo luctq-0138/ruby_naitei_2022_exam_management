@@ -10,7 +10,7 @@
   <div class="form-group">
     <%= f.label :is_correct, t(".is_correct"), class: "control-label col-sm-4 " %>
     <div class="col-sm-6">
-      <%= f.check_box :is_correct, class: "answer-input" %>
+      <%= f.check_box :is_correct, class: "answer-input answer-check-box", onclick:"check_question_type(this)" %>
     </div>
   </div>
   <%= link_to_remove_association t(".remove"), f, class: "btn btn-default btn-xs" %>

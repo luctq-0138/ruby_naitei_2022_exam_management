@@ -30,6 +30,22 @@ module ApplicationHelper
     end
   end
 
+  def status_exam exam
+    content_tag(:span, exam.status_i18n(exam.status),
+                class: "status #{exam.status}-status")
+  end
+
+  def button_exam exam
+    case exam.status
+    when "start"
+      link_to t("start"), exam_path(exam.id), class: "btn btn-primary"
+    when "doing"
+      link_to t("continue"), exam_path(exam.id), class: "btn btn-info"
+    else
+      link_to t("view"), "#", class: "btn btn-success"
+    end
+  end
+
   def status_account user
     user.activated ? "active" : "inactive"
   end
