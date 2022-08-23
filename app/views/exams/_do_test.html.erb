@@ -1,0 +1,30 @@
+  <%= form_for @exam, url: exam_path(@exam.id), html: {class: "form-horizontal"} do |form| %>
+  <% object.each_with_index do |question, index| %>
+    <span class="question-title">
+      <%= t ".question" %> <%= index + 1 %>:
+      <%=form.label :question_id,question.question_content %>
+    </span>
+    <br>
+    <% if question.question_type == Question.types[:single_choice] %>
+      <%= form.fields_for question, index: question.id do |field| %>
+        <div class= "answer-collect">
+          <%= field.collection_radio_buttons :id, question.answers, :id, :content do |answer| %>
+            <%= answer.label { answer.radio_button + " " + answer.text } %><br>
+          <% end %>
+        </div>
+      <% end %>
+    <% else question.question_type == Question.types[:multiple_choice] %>
+      <%= form.fields_for question, index: question.id do |field| %>
+        <div class= "answer-collect">
+          <%= field.collection_check_boxes :id, question.answers, :id, :content do |answer| %>
+            <%= answer.label { answer.check_box + " " + answer.text } %><br>
+          <% end %>
+        </div>
+      <% end %>
+    <% end %>
+    <br>
+  <% end %>
+  <div class="row justify-center">
+    <%= form.submit t(".submit"), class: "btn btn-primary submit-exam col-md-2" %>
+  </div>
+<% end %>

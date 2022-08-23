@@ -11,6 +11,8 @@ en:
   start: "Start"
   continue: "Continue"
   view: "View"
+  wrong_answer: "Wrong answer"
+  correct_answer: "Correct answer"
   layouts:
     header:
       login: "Login"
@@ -78,9 +80,14 @@ en:
       success_create: "Successfully created a new exam"
       fail_create: "New creation failed"
     show:
+      title: "Exam"
+      score: "Score"
+    do_test:
       submit: "Submit"
       question: "Question"
       time_remaining: "Time Remaining:"
+    view_test:
+      question: "Question"
   admin:
     static_pages:
       index:

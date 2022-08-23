@@ -5,9 +5,9 @@ class ExamsController < ApplicationController
 
   def show
     @questions = @exam.questions
-    return unless @exam.start?
+    @exam.set_endtime if @exam.start?
 
-    @exam.set_endtime
+    @list_answer = @exam.answers
   end
 
   def create
@@ -69,4 +69,6 @@ class ExamsController < ApplicationController
       @exam.add questions[random_number]
     end
   end
+
+  def view_result; end
 end
