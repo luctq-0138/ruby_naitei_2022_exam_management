@@ -29,8 +29,10 @@
         <tbody>
           <% @subject_item.each do |subject| %>
             <tr>
-              <td><%=  link_to subject.name, admin_subject_questions_path(subject_id: subject.id) %></td>
-              <td></td>
+              <td>
+                <%=  link_to subject.name, admin_subject_questions_path(subject_id: subject.id) %>
+              </td>
+              <td><%= subject.questions.count %></td>
               <td><%= subject.question_number %></td>
               <td><%= subject.duration %></td>
               <td><%= subject.score_pass %></td>
@@ -39,11 +41,11 @@
                 <%= link_to new_admin_subject_question_path(subject.id) do %>
                   <i class="fa fa-plus icon add-icon" aria-hidden="true"></i>
                 <% end %>
-                <%= link_to admin_subject_path(subject.id), method: :delete do %>
-                  <i class="fa fa-trash icon delete-icon" aria-hidden="true"></i>
-                <% end %>
                 <%= link_to edit_admin_subject_path(subject.id)  do %>
                   <i class="fa fa-pencil-square icon edit-icon" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to admin_subject_path(subject.id), method: :delete do %>
+                  <i class="fa fa-trash icon delete-icon" aria-hidden="true"></i>
                 <% end %>
               </td>
             </tr>

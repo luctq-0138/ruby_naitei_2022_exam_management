@@ -1,34 +1,31 @@
 <%= form_for @question, url: url, html: {class: "form-horizontal"} do |form| %>
   <div class="form-group">
-    <%= form.label :question_content, t(".ques_content") %>
-    <%= form.text_field :question_content, class: "form-control", required: true %>
+    <div class="col-md-5">
+      <%= form.label :question_content, t(".ques_content") %>
+      <%= form.text_area :question_content, class: "form-control", required: true %>
+    </div>
+    <div class="col-md-3 col-md-offset-1">
+      <%= form.label :subject, t(".subject") %>
+      <%= form.select "subject_id", options_for_select(@subject, selected: @question.subject_id || params[:subject_id]), {}, {class: "form-control custom-select" }%>
+    </div>
+    <div class="col-md-2 col-md-offset-1">
+      <%= form.label :question_type, t(".type") %>
+      <%= form.select :question_type, options_for_select(Question.types_i18n, selected: @question.question_type), {}, {class: "form-control custom-select", onchange: "clearChecked()"} %>
+    </div>
   </div>
-
-  <div class="form-group">
-    <%= form.label :subject, t(".subject") %>
-    <%= form.select "subject_id", options_for_select(@subject, selected: @question.subject_id || params[:subject_id]), {}, {class: "form-control custom-select" }%>
-  </div>
-
-  <div class="form-group">
-    <%= form.label :question_type, t(".type") %>
-    <%= form.select :question_type, options_for_select(Question.types_i18n, selected: @question.question_type), {}, {class: "form-control custom-select", onchange: "clearChecked()"} %>
-  </div>
-
-    <div>
-      <div id="answers">
-        <%= form.fields_for :answers, html: { class: "form-horizontal answerForm" } do |field| %>
-          <%= render "answer_fields", f: field %>
-          <%= raw error_message(@question, :answers) %>
-          <br>
-        <% end %>
-
-        <div class="links">
-          <%= link_to_add_association t(".add"), form, :answers, partial: "answer_fields", class: "btn btn-primary" %>
-        </div>
+  <hr>
+  <div>
+    <div id="answers">
+      <%= form.fields_for :answers, html: { class: "form-horizontal answerForm" } do |field| %>
+        <%= render "answer_fields", f: field %>
+        <%= raw error_message(@question, :answers) %>
+      <% end %>
+      <div class="links">
+        <%= link_to_add_association t(".add"), form, :answers, partial: "answer_fields", class: "btn btn-primary" %>
       </div>
     </div>
-  
+  </div>
   <div class="actions save-question">
-    <%= form.submit class: "btn btn-success" %>
+    <%= form.submit t(".submit"), class: "btn btn-success" %>
   </div>
 <% end %>

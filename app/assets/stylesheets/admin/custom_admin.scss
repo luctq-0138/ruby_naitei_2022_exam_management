@@ -14,15 +14,19 @@ a {
   }
 }
 
-.delete-icon,
-.inactive-icon {
-  color: red;
+.add-icon,
+.edit-icon {
   margin-right: 5px;
 }
 
+.delete-icon,
+.inactive-icon {
+  color: red;
+}
+
 .edit-icon {
+  font-size: 17px !important;
   color: $primary;
-  margin-left: 5px
 }
 
 .active-icon {
@@ -34,9 +38,51 @@ a {
 }
 
 .active {
-  color: #3b913b;
+  color: $active;
 }
 
 .inactive {
   color: red
+}
+
+.custom-select {
+  width: 100% !important;
+}
+
+.answer-content {
+  width: 11.45% !important;
+}
+
+.is-correct {
+  width: 8% !important;
+}
+
+.check-box {
+  width: 4% !important;
+}
+
+.check-box {
+  height: 12px !important;
+  width: 20px !important;
+}
+
+.answer-input {
+  margin-bottom: 0;
+}
+
+.btn.remove_fields {
+  display: inline-block;
+  margin-bottom: 0;
+  font-weight: normal;
+  text-align: center;
+  white-space: nowrap;
+
+  vertical-align: middle;
+  cursor: pointer;
+
+  border: 1px solid transparent;
+  padding: 3px 6px;
+
+  background-color: red;
+  color: white;
 }

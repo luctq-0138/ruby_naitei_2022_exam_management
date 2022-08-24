@@ -37,8 +37,8 @@ module ApplicationHelper
 
   def button_exam exam
     case exam.status
-    when "start"
-      link_to t("start"), exam_path(exam.id), class: "btn btn-primary"
+    when "ready"
+      link_to t("ready"), exam_path(exam.id), class: "btn btn-primary"
     when "doing"
       link_to t("continue"), exam_path(exam.id), class: "btn btn-info"
     else

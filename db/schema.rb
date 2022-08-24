@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2022_08_19_022955) do
+ActiveRecord::Schema.define(version: 2022_08_25_064404) do
 
   create_table "answers", charset: "utf8mb4", collation: "utf8mb4_0900_ai_ci", force: :cascade do |t|
     t.string "content"
@@ -72,6 +72,8 @@ ActiveRecord::Schema.define(version: 2022_08_19_022955) do
     t.integer "score_pass"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "exams_count", default: 0, null: false
+    t.integer "questions_count", default: 0, null: false
     t.index ["name"], name: "index_subjects_on_name", unique: true
   end
 

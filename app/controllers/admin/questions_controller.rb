@@ -11,6 +11,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def new
+    @question_index = 1
     @question = Question.new
     @subject = Subject.pluck :name, :id
     @question.answers.build
@@ -47,7 +48,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def destroy
-    if @question.destroy
+    if @question.includes([:answers]).destroy
       flash[:success] = "Question deleted"
     else
       flash[:danger] =  "Questiom delete failed"

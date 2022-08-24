@@ -1,17 +1,18 @@
 <div class="nested-fields">
-  <h4 class="sub subsection"><strong><%= t ".answer" %><span></span></strong></h4>  
   <div class="form-group">
-    <%= f.label :content, t(".answer_content"), class: "control-label col-sm-4 required" %>
-    <div class="col-sm-6">
+    <div class="col-md-1 answer-content">
+      <%= f.label :content, t(".answer_content"), class: "control-label required" %>
+    </div>
+    <div class="col-md-4">
       <%= f.text_field :content, class: "form-control answer-input", required: true %>
     </div>
-  </div>
-
-  <div class="form-group">
-    <%= f.label :is_correct, t(".is_correct"), class: "control-label col-sm-4 " %>
-    <div class="col-sm-6">
-      <%= f.check_box :is_correct, class: "answer-input answer-check-box", onclick:"check_question_type(this)" %>
+    <div class="col-md-2">
+      <%= f.label :is_correct, t(".is_correct"), class: "control-label" %>
+      <%= f.check_box :is_correct, class: "answer-input answer-check-box check-box", onclick:"check_question_type(this)" %>
+    </div>
+    <div class="col-md-1 col-md-offset-3">
+      <%= link_to_remove_association t(".remove"), f, class: "btn btn-danger btn-xs" %>
     </div>
   </div>
-  <%= link_to_remove_association t(".remove"), f, class: "btn btn-default btn-xs" %>
+  <hr>
 </div>

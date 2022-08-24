@@ -8,6 +8,7 @@ gem "bootsnap", ">= 1.4.4", require: false
 gem "bootstrap-sass", "3.4.1"
 gem "cocoon"
 gem "config"
+gem "counter_culture", "~> 2.0"
 gem "font-awesome-rails"
 gem "jbuilder", "~> 2.7"
 gem "mysql2", "~> 0.5"
@@ -35,6 +36,7 @@ group :development, :test do
 end
 
 group :development do
+  gem "bullet"
   gem "listen", "~> 3.3"
   gem "rack-mini-profiler", "~> 2.0"
   gem "spring"

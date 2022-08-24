@@ -2,10 +2,11 @@ class Exam < ApplicationRecord
   ANSWER_ATTRS = %i(question_id answer_id).freeze
   EXAM_ATTRS = %i(question: ANSWER_ATTRS).freeze
 
-  enum status: {start: 0, doing: 1, completed: 2, failed: 3, passed: 4}
+  enum status: {ready: 0, doing: 1, completed: 2, failed: 3, passed: 4}
 
   belongs_to :user
   belongs_to :subject
+  counter_culture :subject
 
   has_many :question_relationships, class_name: Relationship.name,
                                     dependent: :destroy
@@ -34,7 +35,7 @@ class Exam < ApplicationRecord
   end
 
   def check_status exam
-    if exam.start? || exam.doing?
+    if exam.ready? || exam.doing?
       ""
     else
       "#{exam.result}/#{exam.subject.question_number}"
@@ -45,14 +46,14 @@ class Exam < ApplicationRecord
     result = self.result
     questions = self.questions
 
-    multi = questions.find_by question_type: Question.types[:multiple_choice]
+    multi = questions.find_by question_type: Question.types[:multiple]
     have_multi_choice = multi.present?
     result = grading_multi_choice result if have_multi_choice
 
-    single = questions.find_by question_type: Question.types[:single_choice]
+    single = questions.find_by question_type: Question.types[:single]
     have_single_choice = single.present?
     if have_single_choice
-      list_single = Question.get_by_type Question.types[:single_choice]
+      list_single = Question.get_by_type Question.types[:single]
       result = grading_single_choice list_single, result
     end
 
@@ -71,7 +72,7 @@ class Exam < ApplicationRecord
       question.answers.find_by is_correct: true
     end
 
-    user_answers = get_user_answers Question.types[:single_choice]
+    user_answers = get_user_answers Question.types[:single]
 
     user_answers.compact!
 
@@ -88,7 +89,7 @@ class Exam < ApplicationRecord
   end
 
   def grading_multi_choice result
-    user_answers = get_user_answers Question.types[:multiple_choice]
+    user_answers = get_user_answers Question.types[:multiple]
 
     user_answers.compact!
 

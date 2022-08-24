@@ -8,7 +8,7 @@ en:
   danger: "Please log in"
   incorrect_user: "Incorrect user"
   incorrect_admin: "Incorrect admin"
-  start: "Start"
+  ready: "Start"
   continue: "Continue"
   view: "View"
   wrong_answer: "Wrong answer"
@@ -129,15 +129,16 @@ en:
     questions:
       form:
         add: "+ Add another answer"
-        answer_content: "answer content"
         is_correct: "is correct"
         ques_content: "Question content"
         subject: "Subject"
         type: "Question type"
         save: "Save"
+        submit: "Create question"
       answer_fields:
-        answer: "Answer"
-        remove: "remove this answer"
+        answer_content: "Answer content"
+        is_correct: "Is Correct"
+        remove: "Remove this answer"
       new:
         title: "New question"
       create:
@@ -204,11 +205,11 @@ en:
       intro: "Update your profile"
   question:
     type:
-      single_choice: "Single choice"
-      multiple_choice: "Multiple choice"
+      single: "Single choice"
+      multiple: "Multiple choice"
   exam:
     status:
-      start: "Start"
+      ready: "Start"
       doing: "Doing"
       completed: "Completed"
       failed: "Failed"
@@ -227,7 +228,3 @@ en:
             answers:
               not_enough_answer: "Not enough answer for question"
               not_valid_correct_answer_number: "Not valid right answer number"
-  question:
-    type:
-      single_choice: "Single choice"
-      multiple_choice: "Multiple choice"

@@ -10,14 +10,14 @@
       <div class="countdown"></div>
     </div>
     <% if @questions.any? %>
-      <%= render "do_test", object: @questions %>
+      <%= render "do_test", object: @questions.includes([:answers]) %>
     <% end %>
   <% else %>
     <div class="fixed result-fixed">
       <span><%= t(".score") %>: <%= @exam.result %></span>
     </div>
     <% if @questions.any? %>
-      <%= render "view_test", object: @questions %>
+      <%= render "view_test", object: @questions.includes([:answers]) %>
     <% end %>
   <% end %>
 </div>

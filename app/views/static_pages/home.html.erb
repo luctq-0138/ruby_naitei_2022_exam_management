@@ -30,7 +30,7 @@
               </tr>
             </thead>
             <tbody>
-              <% @exam_item.each do |exam| %>
+              <% @exam_item.includes([:subject]).each do |exam| %>
                 <tr>
                   <td><%= exam.created_at.strftime(Settings.date_format) %></td>
                   <td><%= exam.subject_name %></td>
