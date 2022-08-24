@@ -208,3 +208,12 @@ vi:
               cannot_greater: "Không thể lớn hơn số câu hỏi"
             name:
               unique: "đã tồn tại"
+        question:
+          attributes:
+            answers:
+              not_enough_answer: "Không đủ đáp án cho câu hỏi"
+              not_valid_correct_answer_number: "Số câu trả lời đúng không hợp lệ"
+  question:
+    type:
+      single_choice: "Trắc nghệm"
+      multiple_choice: "Chọn nhiều đáp án"
