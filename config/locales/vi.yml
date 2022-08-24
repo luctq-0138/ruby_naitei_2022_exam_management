@@ -42,7 +42,7 @@ vi:
       create_date: "Ngày tạo"
       subject: "Môn học"
       status: "Trạng thái"
-      duration: "Thời gian  (phút)"
+      duration: "Thời gian (phút)"
       ques_num: "Số  câu hỏi"
       score: "Điểm số "
       no_exam: "Chưa có bài thi"
@@ -109,7 +109,7 @@ vi:
         action: "Hành động"
         no_user: "Chưa có môn học"
     account_activations:
-      edit:
+      update:
         success_activated: "Kích hoạt tài khoản thành công"
         success_inactivated: "Vô hiệu hóa tài khoản thành công"
         fail_activated: "Kích hoạt thất bại"
@@ -178,6 +178,20 @@ vi:
       destroy:
         subject_deleted: "Đã xóa môn học"
         subject_delete_fail: "Xóa nmôn học thất bại"
+    exams:
+      index:
+        title: "Danh sách bài kiểm tra"
+        heading: " - Danh sách bài kiểm tra"
+        create_date: "Ngày tạo"
+        subject: "Môn học"
+        status: "Trạng thái"
+        ques_num: "Số  câu hỏi"
+        score: "Điểm số "
+        no_exam: "Chưa có bài thi"
+      show:
+        title: "Bài kiểm tra"
+        score: "Điểm số "
+        question: "Câu hỏi"
   shared:
     user_form:
       name: "Tên"

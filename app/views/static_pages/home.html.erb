@@ -32,7 +32,7 @@
             <tbody>
               <% @exam_item.each do |exam| %>
                 <tr>
-                  <td><%= exam.created_at.strftime("%d/%m/%Y") %></td>
+                  <td><%= exam.created_at.strftime(Settings.date_format) %></td>
                   <td><%= exam.subject_name %></td>
                   <td><%= raw status_exam exam %></td>
                   <td><%= exam.subject.duration %></td>

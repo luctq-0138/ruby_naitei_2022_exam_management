@@ -49,4 +49,20 @@ module ApplicationHelper
   def status_account user
     user.activated ? "active" : "inactive"
   end
+
+  def count_passed_exam subject
+    subject.exams.passed.size
+  end
+
+  def count_attended_subject list_exam
+    list_exam.select("distinct(subject_id)").size
+  end
+
+  def user_link user
+    if user.activated?
+      link_to user.name, admin_user_exams_path(user.id)
+    else
+      user.name
+    end
+  end
 end

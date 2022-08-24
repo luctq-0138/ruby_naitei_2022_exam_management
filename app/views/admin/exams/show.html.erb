@@ -1,0 +1,30 @@
+<% provide :title, t(".title") %>
+<h1><%= @exam.subject_name %></h1>
+<hr>
+<div class="user-exam">
+  <div class="fixed result-fixed">
+    <span><%= t(".score") %>: <%= @exam.result %></span>
+  </div>
+  <% @questions.each_with_index do |question, index| %>
+    <div class="row">
+      <div class="col-md-12">
+        <span class="question-title">
+          <%= t(".question") %> <%= index + 1 %>:
+          <%= question.question_content %>
+        </span>
+        <br>
+        <div class="answer-collect">
+          <% question.answers.each do |answer| %>
+            <label>
+              <%= raw is_checked? @list_answer, answer, question.question_type %>
+              <%= answer.content %>
+            </label>
+            <br>
+          <% end %>
+          <%= raw result_of_question @list_answer, question %>
+        </div>
+        <br>
+      </div>
+    </div>
+  <% end %>
+</div>
