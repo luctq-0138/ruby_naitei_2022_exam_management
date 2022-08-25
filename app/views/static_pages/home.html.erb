@@ -1,5 +1,5 @@
 <% provide(:title, t(".heading")) %>
-<% if logged_in? %>
+<% if user_signed_in? %>
   <div class="mg-top-24">
     <% if @subject.any? %>
       <div class="row">
@@ -57,6 +57,6 @@
       <h2>
         <%= t(".intro") %>
       </h2>
-      <%= link_to t(".signup"), signup_path, class: "btn btn-lg btn-primary" %>
+      <%= link_to t(".signup"), new_user_registration_path, class: "btn btn-lg btn-primary" %>
     </div>
   <% end %>
