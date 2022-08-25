@@ -109,7 +109,7 @@ en:
         action: "Action"
         no_user: "No user yet"
     account_activations:
-      edit:
+      update:
         success_activated: "Account activated"
         success_inactivated: "Disable successfully"
         fail_activated: "Activation failed"
@@ -178,6 +178,20 @@ en:
       destroy:
         subject_deleted: "Subject deleted"
         subject_delete_fail: "Subject delete fail"
+    exams:
+      index:
+        title: "List of test"
+        heading: "'s tests"
+        ques_num: "Question number"
+        create_date: "Create Date"
+        subject: "Subject"
+        status: "Status"
+        score: "Score"
+        no_exam: "No exam yet"
+      show:
+        title: "Exam"
+        score: "Score"
+        question: "Question"
   shared:
     user_form:
       name: "Name"

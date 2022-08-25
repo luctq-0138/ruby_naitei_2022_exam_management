@@ -16,12 +16,12 @@
         <tbody>
           <% @user_item.each do |user| %>
             <tr class="<%= status_account(user) %>">
-              <td><%= user.name %></td>
+              <td><%= user_link user %></td>
               <td><%= user.email %></td>
-              <td></td>
-              <td></td>
+              <td><%= count_attended_subject user.exams %></td>
+              <td><%= count_attended_subject user.exams %></td>
               <td>
-                <%= link_to edit_admin_account_activation_path(user.id) do %>
+                <%= link_to admin_account_activation_path(user.id), method: :patch do %>
                   <i class="<%= icon_active_or_inactive(user) %>" aria-hidden="true"></i>
                 <% end %>
               </td>

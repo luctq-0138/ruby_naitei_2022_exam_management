@@ -18,7 +18,7 @@ class Exam < ApplicationRecord
 
   scope :newest, ->{order(created_at: :desc)}
   scope :by_user, ->(user_id){where(user_id: user_id)}
-
+  scope :by_statuses, ->(statuses){where(status: statuses)}
   delegate :name, to: :subject, prefix: true
 
   def add question

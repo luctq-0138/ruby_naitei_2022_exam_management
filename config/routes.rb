@@ -16,8 +16,11 @@ Rails.application.routes.draw do
       root to: "static_pages#index"
       resources :static_pages, only: %i(index)
       resources :users, only: %i(index)
+      resources :users do
+        resources :exams, only: %i(index show)
+      end
       resources :profile, only: %i(edit update)
-      resources :account_activations, only: %i(edit)
+      resources :account_activations, only: %i(update)
       resources :subjects, only: %i(index new create edit update destroy)
       resources  :subjects do 
         resources :questions
