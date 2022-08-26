@@ -4,9 +4,10 @@ class Question < ApplicationRecord
                    .push(answers_attributes: NESTED_ATTRS)
   MIN_ANSWER = 2
 
-  enum type: {single_choice: 0, multiple_choice: 1}
+  enum type: {single: 0, multiple: 1}
 
   belongs_to :subject
+  counter_culture :subject
 
   has_many :answers, dependent: :destroy
   has_many :exam_relationships, class_name: Relationship.name,
@@ -47,9 +48,9 @@ class Question < ApplicationRecord
     check_valid_question
     correct_count = answers.map(&:is_correct).count(true)
     return true if correct_count.positive? &&
-                   question_type == Question.types[:multiple_choice]
+                   question_type == Question.types[:multiple]
     return true if correct_count == Settings.single_correct_answer &&
-                   question_type == Question.types[:single_choice]
+                   question_type == Question.types[:single]
 
     errors.add(:answers, :not_valid_correct_answer_number)
   end

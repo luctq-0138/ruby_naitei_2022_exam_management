@@ -2,10 +2,10 @@
   <% object.each_with_index do |question, index| %>
     <span class="question-title">
       <%= t ".question" %> <%= index + 1 %>:
-      <%=form.label :question_id,question.question_content %>
+      <%=form.label :question_id, question.question_content %>
     </span>
     <br>
-    <% if question.question_type == Question.types[:single_choice] %>
+    <% if question.question_type == Question.types[:single] %>
       <%= form.fields_for question, index: question.id do |field| %>
         <div class= "answer-collect">
           <%= field.collection_radio_buttons :id, question.answers, :id, :content do |answer| %>
@@ -13,10 +13,10 @@
           <% end %>
         </div>
       <% end %>
-    <% else question.question_type == Question.types[:multiple_choice] %>
+    <% else question.question_type == Question.types[:multiple] %>
       <%= form.fields_for question, index: question.id do |field| %>
         <div class= "answer-collect">
-          <%= field.collection_check_boxes :id, question.answers, :id, :content do |answer| %>
+          <%= field.collection_check_boxes :id, question.includes([:answers]).answers, :id, :content do |answer| %>
             <%= answer.label { answer.check_box + " " + answer.text } %><br>
           <% end %>
         </div>

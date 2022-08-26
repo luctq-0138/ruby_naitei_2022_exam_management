@@ -8,7 +8,7 @@ vi:
   danger: "Hãy đăng nhập"
   incorrect_user: "Bạn không thể  sửa thông tin của người khác"
   incorrect_admin: "Bạn không phải là admin"
-  start: "Bắt đầu"
+  ready: "Bắt đầu"
   continue: "Tiếp tục"
   view: "Xem lại"
   wrong_answer: "Câu trả lời sai"
@@ -129,15 +129,16 @@ vi:
     questions:
       form:
         add: "+ Thêm đáp án"
-        answer_content: "nội dung"
         is_correct: "câu trả lời đúng"
         ques_content: "Nội dung câu hỏi"
         subject: "Môn học"
         type: "Loại câu hỏi"
         save: "Lưu"
+        submit: "Tạo câu hỏi"
       answer_fields:
-        answer: "Đáp án"
-        remove: "xóa câu đáp án"
+        answer_content: "Nội dung"
+        is_correct: "Đúng"
+        remove: "Xóa câu đáp án"
       new:
         title: "Câu hỏi mới"
       create:
@@ -204,11 +205,11 @@ vi:
       intro: "Chỉnh sửa thông tin"
   question:
     type:
-      single_choice: "Trắc nghệm"
-      multiple_choice: "Chọn nhiều đáp án"
+      single: "Trắc nghệm"
+      multiple: "Chọn nhiều đáp án"
   exam:
     status:
-      start: "Bắt đầu"
+      ready: "Bắt đầu"
       doing: "Đang làm"
       completed: "Hoàn thành"
       failed: "Không đạt"
@@ -227,7 +228,3 @@ vi:
             answers:
               not_enough_answer: "Không đủ đáp án cho câu hỏi"
               not_valid_correct_answer_number: "Số câu trả lời đúng không hợp lệ"
-  question:
-    type:
-      single_choice: "Trắc nghệm"
-      multiple_choice: "Chọn nhiều đáp án"

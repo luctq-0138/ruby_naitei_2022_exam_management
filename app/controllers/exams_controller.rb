@@ -5,7 +5,7 @@ class ExamsController < ApplicationController
 
   def show
     @questions = @exam.questions
-    @exam.set_endtime if @exam.start?
+    @exam.set_endtime if @exam.ready?
 
     @list_answer = @exam.answers
   end
@@ -38,11 +38,11 @@ class ExamsController < ApplicationController
   def add_answer_to_record
     params[:exam][:question].each do |key, value|
       case Question.find_by(id: key).question_type
-      when Question.types[:multiple_choice]
+      when Question.types[:multiple]
         value["id"].each do |id|
           @exam.add_record Answer.find_by id: id if id != ""
         end
-      when Question.types[:single_choice]
+      when Question.types[:single]
         @exam.add_record Answer.find_by id: value["id"] if value["id"] != ""
       end
     end

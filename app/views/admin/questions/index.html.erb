@@ -24,17 +24,17 @@
           </tr>
         </thead>
         <tbody>
-          <% @question_item.each do |question| %>
+          <% @question_item.includes([:subject]).each do |question| %>
             <tr>
               <td><%= question.question_content %></td>
               <td><%= question.type_i18n question.question_type %></td>
               <td><%= question.subject.name %></td>
               <td>
-                <%= link_to admin_question_path(question.id), method: :delete do %>
-                  <i class="fa fa-trash icon delete-icon" aria-hidden="true"></i>
-                <% end %>
                 <%= link_to edit_admin_question_path(question.id)  do %>
                   <i class="fa fa-pencil-square icon edit-icon" aria-hidden="true"></i>
+                <% end %>
+                <%= link_to admin_question_path(question.id), method: :delete do %>
+                  <i class="fa fa-trash icon delete-icon" aria-hidden="true"></i>
                 <% end %>
               </td>
             </tr>

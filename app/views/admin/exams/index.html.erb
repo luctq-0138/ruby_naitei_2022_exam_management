@@ -16,7 +16,7 @@
           </tr>
         </thead>
         <tbody>
-          <% @list_exam.each do |exam| %>
+          <% @list_exam.includes([:subject]).each do |exam| %>
             <tr>
               <td><%= exam.created_at.strftime(Settings.date_format) %></td>
               <td><%= exam.subject_name %></td>

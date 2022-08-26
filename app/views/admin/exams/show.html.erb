@@ -5,7 +5,7 @@
   <div class="fixed result-fixed">
     <span><%= t(".score") %>: <%= @exam.result %></span>
   </div>
-  <% @questions.each_with_index do |question, index| %>
+  <% @questions.includes([:answers]).each_with_index do |question, index| %>
     <div class="row">
       <div class="col-md-12">
         <span class="question-title">
