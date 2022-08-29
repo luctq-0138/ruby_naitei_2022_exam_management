@@ -40,7 +40,7 @@ class Admin::QuestionsController < Admin::BaseController
     @subject_id = @question.subject_id
     if @question.update question_params
       flash[:success] = "update_success"
-      redirect_to admin_questions_path
+      redirect_back_or admin_questions_path
     else
       flash[:danger] = "update_false"
       render :edit

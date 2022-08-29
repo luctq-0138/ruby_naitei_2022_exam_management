@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   before_action :logged_in_user, :correct_user, only: %i(edit update)
 
   def show
-    retun if @user
+    return if @user
 
     flash.now[:error] = t "not_found"
     redirect_to root_path

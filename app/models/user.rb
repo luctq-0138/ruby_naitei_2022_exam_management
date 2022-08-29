@@ -1,7 +1,11 @@
 class User < ApplicationRecord
+  # Include default devise modules. Others available are:
+  # :confirmable, :lockable, :timeoutable, :trackable and :omniauthable
+  devise :database_authenticatable, :registerable,
+         :recoverable, :rememberable, :validatable
   has_many :exams, dependent: :destroy
 
-  USER_ATTRS = %i(name email password password_confirmation).freeze
+  USER_ATTRS = %i(name email password password_confirmation remember_me).freeze
   enum role_id: {user: 0, admin: 1}
   before_save :downcase_email
 
@@ -15,7 +19,6 @@ class User < ApplicationRecord
                    length: {minium: Settings.min_length,
                             maximum: Settings.max_length}
 
-  has_secure_password
   validates :password, presence: true,
                        length: {minimum: Settings.password_min_length},
                        allow_nil: true

@@ -5,7 +5,7 @@ class Admin::BaseController < ApplicationController
   private
 
   def check_role_user
-    return if logged_in? && current_user.admin?
+    return if user_signed_in? && current_user.admin?
 
     flash[:danger] = t "incorrect_admin"
     redirect_to root_path
