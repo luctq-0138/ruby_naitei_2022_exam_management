@@ -39,6 +39,7 @@ vi:
       intro: "Hệ thống quản lý kỳ thi"
       signup: "Đăng ký ngay"
       create_exam: "Tạo bài thi"
+      all_exam: "Tất cả"
       create_date: "Ngày tạo"
       subject: "Môn học"
       status: "Trạng thái"
@@ -67,14 +68,12 @@ vi:
       invalid_email_password_combination: "Email và password không trùng khớp"
       login_success: "Đăng nhập thành công"
       account_not_activated: "Tài khoản chưa được kích hoạt. Liên hệ quản trị viên để  được kích hoạt tài khoản"
-  users:
+  registrations:
     new:
-      signup: "Đăng ký"
-      intro: "Trang đăng ký cho người dùng mới."
-      create: "Đăng ký tài khoản"
-    update:
-      update_success: "Thông tin đã được thay đổi"
-      update_false: "Cập nhật thông tin thất bại"
+      title: "Đăng ký"
+    edit:
+      title: "Chỉnh sửa tài khoản"
+      update: "Cập nhật"
   exams:
     create:
       success_create: "Tạo bài kiểm tra thành công"
@@ -205,7 +204,7 @@ vi:
       intro: "Chỉnh sửa thông tin"
   question:
     type:
-      single: "Trắc nghệm"
+      single: "Trắc nghiệm"
       multiple: "Chọn nhiều đáp án"
   exam:
     status:

@@ -16,7 +16,7 @@
     <% else question.question_type == Question.types[:multiple] %>
       <%= form.fields_for question, index: question.id do |field| %>
         <div class= "answer-collect">
-          <%= field.collection_check_boxes :id, question.includes([:answers]).answers, :id, :content do |answer| %>
+          <%= field.collection_check_boxes :id, question.answers, :id, :content do |answer| %>
             <%= answer.label { answer.check_box + " " + answer.text } %><br>
           <% end %>
         </div>

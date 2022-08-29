@@ -12,6 +12,7 @@ class Question < ApplicationRecord
   has_many :answers, dependent: :destroy
   has_many :exam_relationships, class_name: Relationship.name,
                                 dependent: :destroy
+
   has_many :exams, through: :exam_relationships, source: :exam
   accepts_nested_attributes_for :answers,
                                 allow_destroy: true,
@@ -22,6 +23,7 @@ class Question < ApplicationRecord
   validate :check_single_choice, on: %i(create update)
 
   scope :get_by_type, ->(type){where question_type: type}
+  scope :get_by_id, ->(id){where id: id}
   scope :by_subject, ->(id){where subject_id: id if id.present?}
 
   class << self
@@ -35,6 +37,61 @@ class Question < ApplicationRecord
   def type_i18n type_id
     type = Question.types.keys[type_id]
     I18n.t("question.type.#{type}")
+  end
+
+  class << self
+    def import file
+      spreadsheet = open_spreadsheet(file)
+      header = spreadsheet.row(1)
+      (2..spreadsheet.last_row).each do |i|
+        row = Hash[[header, spreadsheet.row(i)].transpose]
+        Question.create! handle_data row
+      end
+    end
+
+    def handle_data row
+      row[:subject_id] = (Subject.find_by name: row["subject"]).id
+      row[:question_content] = row["question content"].strip
+      row[:question_type] = handle_type row["question type"]
+      row[:answers_attributes] = handel_excel row["answers attributes"].strip
+      row.delete "subject"
+      row.delete "question type"
+      row.delete "question content"
+      row.delete "answers attributes"
+      row
+    end
+
+    def handle_type question_type
+      case question_type
+      when Question.types[:single]
+        Question.types[:single]
+      when Question.types[:multiple]
+        Question.types[:multiple]
+      end
+    end
+
+    def open_spreadsheet file
+      case File.extname(file.original_filename)
+      when ".csv" then Roo::CSV.new(file.path)
+      when ".xls" then Roo::Excel.new(file.path)
+      when ".xlsx" then Roo::Excelx.new(file.path)
+      else raise "Unknown file type: #{file.original_filename}"
+      end
+    rescue StandardRecord
+      Rails.logger = Logger.new "Unknown file type"
+    end
+
+    protected
+
+    def handel_excel row
+      row.split(",").map do |attribute|
+        attribute_hash = Hash.new
+        arr_option = attribute.split(":")
+        attribute_hash[:content] = arr_option[0]
+        attribute_hash[:is_correct] = arr_option[1]
+        attribute_hash
+      end
+    end
   end
 
   private
