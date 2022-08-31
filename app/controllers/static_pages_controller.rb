@@ -7,7 +7,9 @@ class StaticPagesController < ApplicationController
 
     @subject = Subject.pluck :name, :id
     @exam = Exam.new
-    @pagy, @exam_item = pagy Exam.newest.by_user(current_user.id),
+
+    @search = Exam.ransack(params[:q])
+    @pagy, @exam_item = pagy @search.result.newest.by_id(current_user.id),
                              items: Settings.pagy
   end
 

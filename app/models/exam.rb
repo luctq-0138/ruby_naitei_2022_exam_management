@@ -19,8 +19,13 @@ class Exam < ApplicationRecord
 
   scope :newest, ->{order(created_at: :desc)}
   scope :by_user, ->(user_id){where(user_id: user_id)}
+  scope :by_id, ->(id){where(id: id)}
   scope :by_statuses, ->(statuses){where(status: statuses)}
   delegate :name, to: :subject, prefix: true
+
+  ransacker :created_at, type: :date do
+    Arel.sql("date(created_at)")
+  end
 
   def add question
     questions << question

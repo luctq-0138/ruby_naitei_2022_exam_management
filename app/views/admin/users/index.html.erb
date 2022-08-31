@@ -1,5 +1,17 @@
 <% provide(:title, t(".title" )) %>
 <h1><%= t ".heading" %></h1>
+<hr>
+<div class="row">
+  <div class="col-md-4 search-form">
+    <%= search_form_for @search, url: admin_users_path, class: "form-inline" do |search| %>
+      <%= search.search_field :email, class: "form-control" %>
+      <%= button_tag(type: :submit, class: "btn btn-primary") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+    <% end %>
+  </div>
+</div>
+<hr>
 <div class="row">
   <div class="col-md-12">
     <% if @user_item.any? %>

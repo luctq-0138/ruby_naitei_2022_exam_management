@@ -1,5 +1,6 @@
 class Admin::UsersController < Admin::BaseController
   def index
-    @pagy, @user_item = pagy User.user, items: Settings.pagy
+    @search = User.ransack email_cont: params[:q] ? params[:q][:email] : ""
+    @pagy, @user_item = pagy @search.result.user, items: Settings.pagy
   end
 end

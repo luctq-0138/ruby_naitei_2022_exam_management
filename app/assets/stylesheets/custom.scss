@@ -246,6 +246,17 @@ td {
   margin-top: 20px;
 }
 
+/* Search */
+.date-field-search {
+  display: flex;
+  height: 34px;
+
+  .form-control {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}
+
 /* answer in exam */
 
 .answer-collect>label {
@@ -310,4 +321,23 @@ td {
 
 .result-wrong {
   background-color: red;
+}
+
+/* Log in */
+.new_user {
+  .form-group {
+    margin-bottom: 8px;
+  }
+
+  .checkbox-login {
+    width: 15px;
+  }
+
+  .label-login {
+    font-weight: 400;
+  }
+}
+
+.mg-top-4 {
+  margin-top: 4px;
 }

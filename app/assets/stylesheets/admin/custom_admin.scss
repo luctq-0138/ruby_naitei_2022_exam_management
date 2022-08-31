@@ -86,3 +86,30 @@ a {
   background-color: red;
   color: white;
 }
+
+.search-form {
+  display: flex;
+  height: 34px;
+
+  .form-control,
+  .btn-primary {
+    margin-bottom: 0;
+    margin-right: 15px;
+  }
+}
+
+.import-button {
+  display: flex;
+  justify-content: flex-end;
+
+  .btn-default {
+    height: 34px;
+  }
+
+  #file {
+    flex: 0.64;
+    margin-right: 15px;
+    margin-bottom: 0;
+    padding: 5px 5px
+  }
+}

@@ -1,0 +1,16 @@
+vi:
+  devise:
+    passwords:
+      new:
+        title: "Quên mật khẩu"
+        submit: "Đổi mật khẩu"
+      edit:
+        title: "Đổi mật khẩu"
+        submit: "Lưu thay đổi"
+    sessions:
+      new:
+        title: "Đăng nhập"
+        new_user: "Người dùng mới?"
+        sign_up_now: "Đăng ký ngay!"
+        remember_me: "Ghi nhớ tài khoản"
+        forgot_password: "(quên mật khẩu)"

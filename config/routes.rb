@@ -17,10 +17,12 @@ Rails.application.routes.draw do
       end
       resources :account_activations, only: %i(update)
       resources :subjects, only: %i(index new create edit update destroy)
-      resources  :subjects do 
+      resources  :subjects do
         resources :questions
       end
-      resources :questions
+      resources :questions do
+        collection {post :import}
+      end
       resources :answers
     end
   end

@@ -28,7 +28,7 @@ class ExamsController < ApplicationController
 
   private
   def find_exam
-    @exam = Exam.find_by id: params[:id]
+    @exam = Exam.find_by(id: params[:id])
     return if @exam.present?
 
     flash[:danger] = t "not_found"
@@ -69,6 +69,4 @@ class ExamsController < ApplicationController
       @exam.add questions[random_number]
     end
   end
-
-  def view_result; end
 end

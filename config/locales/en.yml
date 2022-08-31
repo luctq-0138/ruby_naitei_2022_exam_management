@@ -39,6 +39,7 @@ en:
       intro: "The exam management"
       signup: "Sign up now!"
       create_exam: "Create Exam"
+      all_exam: "All"
       create_date: "Create Date"
       subject: "Subject"
       status: "Status"
@@ -67,14 +68,12 @@ en:
       invalid_email_password_combination: "Invalid email/password combination"
       login_success: "Log in successfully"
       account_not_activated: "Account not activated. Contact the administrator to activate the account"
-  users:
+  registrations:
     new:
-      signup: "Sign up"
-      intro: "Sign up page for new users."
-      create: "Create my account"
-    update:
-      update_success: "Profile updated"
-      update_false: "Update failed"
+      title: "Sign up"
+    edit:
+      title: "Edit account"
+      update: "Update"
   exams:
     create:
       success_create: "Successfully created a new exam"

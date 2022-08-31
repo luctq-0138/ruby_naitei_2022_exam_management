@@ -1,5 +1,5 @@
 class Admin::QuestionsController < Admin::BaseController
-  before_action :find_question, except: %i(index new create)
+  before_action :find_question, except: %i(index new create import)
 
   def index
     store_location
@@ -47,8 +47,20 @@ class Admin::QuestionsController < Admin::BaseController
     end
   end
 
+  def import
+    arr_file = Settings.import
+    if params[:file].blank?
+      flash[:danger] = "Fields cannot be blank!"
+    elsif arr_file.include? params[:file].original_filename.split(".").last
+      import_file
+    else
+      flash[:danger] = "Not format"
+    end
+    redirect_to admin_questions_path
+  end
+
   def destroy
-    if @question.includes([:answers]).destroy
+    if @question.includes(answers: :exam_relationships).destroy(params[:id])
       flash[:success] = "Question deleted"
     else
       flash[:danger] =  "Questiom delete failed"
@@ -62,7 +74,7 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def find_question
-    @question = Question.find_by id: params[:id]
+    @question = Question.get_by_id(params[:id])
     return if @question.present?
 
     flash[:danger] = t "not_found"
@@ -77,5 +89,13 @@ class Admin::QuestionsController < Admin::BaseController
     @pagy, @question_item = pagy @search.result, items: Settings.pagy
     @search_path = params[:subject_id] ? search_path : admin_questions_path
     @path = params[:subject_id] ? sub_path : new_admin_question_path
+  end
+
+  def import_file
+    if Question.import(params[:file])
+      flash[:success] = "Question imported."
+    else
+      flash[:danger] = "Question import failed"
+    end
   end
 end

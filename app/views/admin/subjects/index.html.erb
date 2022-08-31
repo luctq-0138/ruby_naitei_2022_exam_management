@@ -1,16 +1,20 @@
 <% provide(:title, t(".title" )) %>
 <h1><%= t ".title" %></h1>
+<hr>
 <div class="row">
-  <%= search_form_for @search,url: admin_subjects_path, class: "form-inline" do |search| %>
-    <%= search.search_field :name, class: "form-control" %>
-    <%= search.submit class: "btn btn-primary form-control" %>
-  <% end %>
-  <div class="col-md-2 col-md-offset-10">
-    <%= link_to new_admin_subject_path, :class=>"btn btn-success", :style=>"width: 100%;" do %>
-      <%= t ".create_new_subject" %>
+  <div class="col-md-4 search-form">
+    <%= search_form_for @search, url: admin_subjects_path, class: "form-inline" do |search| %>
+      <%= search.search_field :name, class: "form-control" %>
+      <%= button_tag(type: :submit, class: "btn btn-primary") do %>
+        <i class="glyphicon glyphicon-search"></i>
+      <% end %>
+      <%= link_to new_admin_subject_path, :class=>"btn btn-success" do %>
+        <i class="fa fa-plus" aria-hidden="true"></i>
+      <% end %>
     <% end %>
   </div>
 </div>
+<hr>
 <div class="row">
   <div class="col-md-12">
     <% if @subject_item.any? %>
