@@ -1,5 +1,9 @@
 <% provide(:title, "All question") %>
 <h1>All question</h1>
+<div id="modal-image">
+  <span class="close-modal">&times;</span>
+  <img class="modal-content" id="image-modal">
+</div>
 <hr>
 <div class="row">
   <div class="col-md-4 search-form">
@@ -38,14 +42,18 @@
         <tbody>
           <% @question_item.includes([:subject]).each do |question| %>
             <tr>
-              <td><%= question.question_content %></td>
+              <td>
+                <%= question.question_content %> <br/>
+                <%= image_tag question.question_image, class: "td-question-image", :onclick => "createImageModal(this)" if question.question_image.attached? %>
+              </td>
               <td><%= question.type_i18n question.question_type %></td>
               <td><%= question.subject.name %></td>
               <td>
                 <%= link_to edit_admin_question_path(question.id)  do %>
                   <i class="fa fa-pencil-square icon edit-icon" aria-hidden="true"></i>
                 <% end %>
-                <%= link_to admin_question_path(question.id), method: :delete do %>
+                <%= link_to admin_question_path(question.id),
+                            data: {confirm: "Are you sure to delete this question?"}, method: :delete do %>
                   <i class="fa fa-trash icon delete-icon" aria-hidden="true"></i>
                 <% end %>
               </td>
@@ -59,3 +67,4 @@
     <% end %>
   </div>
 </div>
+<%= javascript_pack_tag "question", "data-turbolinks-track": "reload" %>

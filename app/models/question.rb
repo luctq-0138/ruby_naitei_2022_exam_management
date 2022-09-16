@@ -1,19 +1,25 @@
 class Question < ApplicationRecord
   NESTED_ATTRS = %i(id content is_correct _destroy).freeze
-  QUESTION_ATTRS = %i(question_content subject_id question_type)
+  QUESTION_ATTRS = %i(question_content question_image subject_id question_type)
                    .push(answers_attributes: NESTED_ATTRS)
   MIN_ANSWER = 2
+
+  after_update :clean_storage
+  after_save :clean_storage
+  after_destroy :clean_storage
 
   enum type: {single: 0, multiple: 1}
 
   belongs_to :subject
   counter_culture :subject
-
   has_many :answers, dependent: :destroy
   has_many :exam_relationships, class_name: Relationship.name,
                                 dependent: :destroy
 
   has_many :exams, through: :exam_relationships, source: :exam
+
+  has_one_attached :question_image
+
   accepts_nested_attributes_for :answers,
                                 allow_destroy: true,
                                 reject_if: proc{|att| att["content"].blank?}
@@ -21,7 +27,14 @@ class Question < ApplicationRecord
   validates :question_content, :subject_id, :question_type, presence: true
   validates :question_type, inclusion: {in: Question.types.values}
   validate :check_single_choice, on: %i(create update)
-
+  validates :question_image, {content_type: {
+                                in: Settings.image_type,
+                                message: "must be a valid image format"
+                              },
+                              size: {
+                                less_than: 5.megabytes,
+                                message: "should be less than 5MB"
+                              }}
   scope :get_by_type, ->(type){where question_type: type}
   scope :get_by_id, ->(id){where id: id}
   scope :by_subject, ->(id){where subject_id: id if id.present?}
@@ -94,6 +107,10 @@ class Question < ApplicationRecord
     end
   end
 
+  def question_image_path
+    ActiveStorage::Blob.service.path_for(question_image.key)
+  end
+
   private
   def check_valid_question
     return true if answers.size >= MIN_ANSWER
@@ -110,5 +127,12 @@ class Question < ApplicationRecord
                    question_type == Question.types[:single]
 
     errors.add(:answers, :not_valid_correct_answer_number)
+  end
+
+  def clean_storage
+    Dir.glob(Rails.root.join("storage/**/*").to_s)
+       .sort_by(&:length).reverse.each do |x|
+      Dir.rmdir(x) if File.directory?(x) && Dir.empty?(x)
+    end
   end
 end

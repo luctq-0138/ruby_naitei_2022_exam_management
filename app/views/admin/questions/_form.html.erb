@@ -2,7 +2,24 @@
   <div class="form-group">
     <div class="col-md-5">
       <%= form.label :question_content, t(".ques_content") %>
-      <%= form.text_area :question_content, class: "form-control", required: true %>
+      <%= form.text_area :question_content, class: "form-control custom-textarea-question-content", required: true %>
+      <div class="input-file">
+        <%= form.file_field :question_image, accept:"image/jpeg,image/gif,image/png"%>
+        <label for="question_question_image">Attach images to question (PNG, JPG)</label>
+        <% if @question.question_image.attached? %>
+          <%= @question.question_image_path %>
+          <ul class="preview" style="display: flex;">
+            <%= form.hidden_field :is_attach_image, value: true %>
+            <li>
+              <i class="fa fa-close preview-close"></i>
+              <%= image_tag @question.question_image, width: "50", height: "50", id: "image-attach" %>
+            </li>
+          </ul>
+        <% else %>
+          <ul class="preview">
+          </ul>
+        <% end %>
+      </div>
     </div>
     <div class="col-md-3 col-md-offset-1">
       <%= form.label :subject, t(".subject") %>

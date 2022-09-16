@@ -10,3 +10,4 @@ min_question: 2
 single_correct_answer: 1
 date_format: "%d/%m/%Y"
 import: "%w(xlsx csv xls)"
+image_type: ["image/jpeg", "image/gif", "image/png"]

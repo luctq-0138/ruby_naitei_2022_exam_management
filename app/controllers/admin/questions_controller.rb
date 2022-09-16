@@ -20,6 +20,8 @@ class Admin::QuestionsController < Admin::BaseController
 
   def create
     @question = Question.new question_params
+    puts "question image" +  params[:question][:question_image]
+    # @question.question_image.attach(params[:question][:question_image])
     @subject = Subject.pluck :name, :id
     if @question.save
       flash[:success] = t ".created"
@@ -31,12 +33,14 @@ class Admin::QuestionsController < Admin::BaseController
   end
 
   def edit
+    @question = Question.find_by id: params[:id]
     @subject = Subject.pluck :name, :id
     @type = Question.types
   end
 
   def update
-    @answer_item = Question.find_by id: params[:id]
+    @question = Question.find_by id: params[:id]
+    @question.question_image.purge unless params[:question][:is_attach_image]
     @subject_id = @question.subject_id
     if @question.update question_params
       flash[:success] = "update_success"

@@ -42,7 +42,7 @@ a {
 }
 
 .inactive {
-  color: red
+  color: red;
 }
 
 .custom-select {
@@ -110,6 +110,151 @@ a {
     flex: 0.64;
     margin-right: 15px;
     margin-bottom: 0;
-    padding: 5px 5px
+    padding: 5px 5px;
   }
+}
+
+.td-question-image {
+  width: 32px;
+  height: 32px;
+  cursor: pointer;
+  transition: 0.3s;
+  &:hover {
+    opacity: 0.8;
+  }
+}
+
+/* The Modal (background) */
+#modal-image {
+  display: none; /* Hidden by default */
+  position: fixed; /* Stay in place */
+  z-index: 9999; /* Sit on top */
+  padding-top: 100px; /* Location of the box */
+  left: 0;
+  top: 0;
+  width: 100%; /* Full width */
+  height: 100%; /* Full height */
+  overflow: auto; /* Enable scroll if needed */
+  background-color: rgb(0, 0, 0); /* Fallback color */
+  background-color: rgba(0, 0, 0, 0.9); /* Black w/ opacity */
+}
+
+.modal-content {
+  margin: auto;
+  display: block;
+  width: 80%;
+  max-width: 700px;
+  -webkit-animation-name: zoom;
+  -webkit-animation-duration: 0.6s;
+  animation-name: zoom;
+  animation-duration: 0.6s;
+}
+
+@-webkit-keyframes zoom {
+  from {
+    -webkit-transform: scale(0);
+  }
+  to {
+    -webkit-transform: scale(1);
+  }
+}
+
+@keyframes zoom {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
+
+/* The Close Button */
+.close-modal {
+  position: absolute;
+  top: 15px;
+  right: 35px;
+  color: #f1f1f1;
+  font-size: 40px;
+  font-weight: bold;
+  transition: 0.3s;
+}
+
+.close-modal:hover,
+.close-modal:focus {
+  color: #bbb;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* 100% Image Width on Smaller Screens */
+@media only screen and (max-width: 700px) {
+  .modal-content {
+    width: 100%;
+  }
+}
+
+.custom-textarea-question-content {
+  margin-bottom: 0px !important;
+  border-bottom-style: dashed !important;
+  border-bottom-right-radius: 0px !important;
+  border-bottom-left-radius: 0px !important;
+}
+
+.input-file {
+  position: relative;
+}
+.input-file input:first-child {
+  margin: 0px;
+  opacity: 0;
+}
+
+.input-file label {
+  cursor: pointer;
+  position: absolute;
+  top: 0px;
+  width: 100%;
+  margin-bottom: 0px;
+  line-height: 1;
+  font-size: 13px;
+  font-weight: 100;
+  padding: 5px;
+  box-sizing: border-box;
+  border: 1px solid #ccc;
+  background-color: #f6f8fa;
+  border-top: 0px;
+}
+.preview {
+  display: none;
+  list-style-type: none;
+  position: relative;
+  width: 100%;
+  height: 65px;
+  border: 1px solid #d0d7de;
+  border-top: 0px;
+  box-sizing: border-box;
+  padding: 5px;
+  padding-top: 10px;
+  top: -2px;
+  flex-wrap: wrap;
+}
+.preview-close {
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  font-size: 20px;
+}
+.preview-image-container {
+  position: relative;
+  border: 1px solid #000;
+}
+.preview-image-close {
+  cursor: pointer;
+  color: black;
+  position: absolute;
+  right: -6px;
+  top: -8px;
+  font-size: 16px;
+}
+.preview-image-close:hover {
+  color: red;
 }
