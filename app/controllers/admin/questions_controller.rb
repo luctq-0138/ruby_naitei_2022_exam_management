@@ -8,6 +8,11 @@ class Admin::QuestionsController < Admin::BaseController
                                 params[:q] ? params[:q][:question_content] : ""
     @search.sorts = params.dig(:q, :s) || "id asc"
     handle_param
+    @questions_export = Question.all
+    respond_to do |format|
+      format.html
+      format.xlsx
+    end
   end
 
   def new
@@ -20,7 +25,6 @@ class Admin::QuestionsController < Admin::BaseController
 
   def create
     @question = Question.new question_params
-    puts "question image" +  params[:question][:question_image]
     # @question.question_image.attach(params[:question][:question_image])
     @subject = Subject.pluck :name, :id
     if @question.save

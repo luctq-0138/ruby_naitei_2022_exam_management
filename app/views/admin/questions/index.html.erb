@@ -1,5 +1,11 @@
 <% provide(:title, "All question") %>
-<h1>All question</h1>
+<h1>
+  All question
+  <%= link_to admin_questions_path(format: :xlsx,),
+                                     :data => {:confirm => "Are you sure export to excel?"} do %>
+    <i class="fa fa-file-excel-o "></i>
+  <% end %>
+</h1>
 <div id="modal-image">
   <span class="close-modal">&times;</span>
   <img class="modal-content" id="image-modal">

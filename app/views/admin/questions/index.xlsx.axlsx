@@ -1,0 +1,18 @@
+wb = xlsx_package.workbook
+wb.styles do |style|
+  wb.add_worksheet(name: 'questions') do |sheet|
+    sheet.add_row ["subject", "question type", "question content", "answers attributes", "image"]
+    @questions_export.each_with_index do |question, index|
+    img = File.expand_path(Rails.root+question.question_image_path)
+      sheet.add_row [question.subject.name,
+                    question.question_type,
+                    question.question_content,
+                    question.get_answers,
+                    url_for(question.question_image),
+                    .add_image(:image_src => img, :noMove => true) do |image|
+                      image.width = 50
+                      image.height = 50
+                    end]
+    end
+  end
+end
